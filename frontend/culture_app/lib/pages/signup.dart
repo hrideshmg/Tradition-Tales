@@ -64,9 +64,10 @@ class _SignUpState extends State<SignUp> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-              const  SizedBox(height: 495,),
+              const  SizedBox(height: 345,),
               const SizedBox(height: 18,),
               TextField(
+                obscureText: false,
                 style:const TextStyle(color: Colors.white),
                 controller: userNameController,
                 decoration: InputDecoration(
@@ -79,6 +80,7 @@ class _SignUpState extends State<SignUp> {
               ),
               const SizedBox(height: 18,),
               TextField(
+                obscureText: true,
                 style:const TextStyle(color: Colors.white),
                 controller: passwordController,
                 decoration: InputDecoration(
@@ -90,6 +92,7 @@ class _SignUpState extends State<SignUp> {
               ),
               const SizedBox(height: 18,),
               TextField(
+                obscureText: true,
                 style:const TextStyle(color: Colors.white),
                 controller: ConfirmPasswordController,
                 decoration: InputDecoration(
@@ -117,4 +120,31 @@ class _SignUpState extends State<SignUp> {
       ),
     );
   }
+}
+class SlideRightRoute extends PageRouteBuilder {
+ final Widget page;
+
+ SlideRightRoute({required this.page})
+      : super(
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) {
+            return SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(1, 0),
+                end: Offset.zero,
+              ).animate(animation),
+              child: child,
+            );
+          },
+        );
 }

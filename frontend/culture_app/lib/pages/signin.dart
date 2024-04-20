@@ -46,6 +46,7 @@ class _SignInState extends State<SignIn> {
     return response;
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +62,7 @@ class _SignInState extends State<SignIn> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-              const  SizedBox(height: 495,),
+              const  SizedBox(height: 335,),//495
               const SizedBox(height: 18,),
               TextField(
                 style:const TextStyle(color: Colors.white),
@@ -90,7 +91,11 @@ class _SignInState extends State<SignIn> {
                   Text("Don't have an account?",style: TextStyle(color: Colors.white)),
                   SizedBox(width: 9,),
                   GestureDetector(
-                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>const SignUp()));},
+                    onTap: (){Navigator.push(
+                    context,
+                    SlideRightRoute(page: SignUp()),
+                    );
+                    },
                     child:const Text("Sign-up",style: TextStyle(color: Color(0xff4782ba)),),
                   )
                 ],
