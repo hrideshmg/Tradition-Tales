@@ -2,6 +2,9 @@ import 'dart:math';
 import 'package:culture_app/custom/custom_icons.dart';
 import 'package:culture_app/data/data.dart';
 import 'package:culture_app/pages/ProfilePage.dart';
+import 'package:culture_app/pages/details_page2.dart';
+import 'package:culture_app/pages/details_page3.dart';
+import 'package:culture_app/pages/details_page4.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'details_page.dart';
@@ -15,7 +18,9 @@ class element {
 
 List<element> elements = [
   element("assets/images/pic7.jpeg", DetailsPage()),
-  element("assets/images/pic13.jpeg", Placeholder())
+  element("assets/images/pic13.jpeg", DetailsPage2()),
+  element("assets/images/onam.jpg", DetailsPage3()),
+  element("assets/images/diwali.png", DetailsPage4()),
 ];
 
 class HomePage extends StatefulWidget {
@@ -62,10 +67,15 @@ class _HomePageState extends State<HomePage> {
               tileMode: TileMode.clamp)),
       child: Scaffold(
           appBar: AppBar(
-              automaticallyImplyLeading: false, // Ensure no default back button
-              titleSpacing: 0, // Reduce spacing between title and actions
-              title: Image.asset("assets/images/image1.png",width: 250,height: 150,),
-              toolbarHeight: 100,),
+            automaticallyImplyLeading: false, // Ensure no default back button
+            titleSpacing: 0, // Reduce spacing between title and actions
+            title: Image.asset(
+              "assets/images/image1.png",
+              width: 250,
+              height: 150,
+            ),
+            toolbarHeight: 100,
+          ),
           body: PageView(children: [
             SafeArea(
                 child: SingleChildScrollView(
@@ -190,7 +200,6 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             )),
-            
             SingleChildScrollView(
               child: Column(
                 children: [
@@ -238,7 +247,6 @@ class _HomePageState extends State<HomePage> {
                                 color: Color(0xFF1565c0)),
                           ),
                         ),
-                        
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 12, right: 12, top: 8, bottom: 8),
@@ -282,7 +290,6 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  
                   InkWell(
                     child: Stack(
                       children: <Widget>[
