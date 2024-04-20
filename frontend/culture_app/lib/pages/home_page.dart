@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
         style: TextStyle(
           color: Colors.black,
           fontSize: 25,
-          fontFamily: "Sans-Bold",
+          fontFamily: "inter",
           letterSpacing: 1,
         ),
       ),
