@@ -1,7 +1,9 @@
 import 'dart:ui';
+import "package:culture_app/util/global.dart";
 import 'package:culture_app/Navigator.dart';
 import 'package:culture_app/pages/home_page.dart';
 import 'package:culture_app/pages/signup.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -20,7 +22,7 @@ class _SignInState extends State<SignIn> {
   late String username = UserNameController.text;
 
   final storage = const FlutterSecureStorage();
-  final loginUrl = "127.0.0.1:800";
+  final loginUrl = apiUrl + "account/login/";
 
   TextEditingController UserNameController = TextEditingController();
   TextEditingController PasswordController = TextEditingController();
@@ -40,6 +42,9 @@ class _SignInState extends State<SignIn> {
         content: Text("Sign in Succesfull"),
       ));
       await storage.write(key: 'token', value: token);
+
+      Navigator.push(
+          context, MaterialPageRoute(builder: ((context) => Navigation1())));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Sign in failed, please try again"),
@@ -55,10 +60,10 @@ class _SignInState extends State<SignIn> {
         child: Stack(
           children: [
             Image.network(
-              "https://images.unsplash.com/photo-1582314437409-7a48e94a6511?q=80&w=3120&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              fit: BoxFit.cover,
-              height: double.infinity,
-            ),
+                "https://images.unsplash.com/photo-1582314437409-7a48e94a6511?q=80&w=3120&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                fit: BoxFit.cover,
+                height: double.infinity,
+                width: double.infinity),
             Container(
               decoration: const BoxDecoration(
                   gradient: LinearGradient(
@@ -73,8 +78,9 @@ class _SignInState extends State<SignIn> {
                     0.9
                   ])),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20,right: 20),
+            SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -102,6 +108,7 @@ class _SignInState extends State<SignIn> {
                       height: 18,
                     ),
                     TextField(
+                      obscureText: true,
                       style: const TextStyle(color: Colors.white),
                       controller: PasswordController,
                       decoration: InputDecoration(
@@ -138,10 +145,12 @@ class _SignInState extends State<SignIn> {
                         )
                       ],
                     ),
-                 SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: ((context) => Navigation1())));
+                          sendPostRequest();
                         },
                         child: Text(
                           "Sign-In",
@@ -158,7 +167,7 @@ class _SignInState extends State<SignIn> {
                   ],
                 ),
               ),
-            
+            ),
           ],
         ),
       ),

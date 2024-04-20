@@ -1,4 +1,5 @@
 import 'package:culture_app/pages/signin.dart';
+import 'package:culture_app/util/global.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -15,7 +16,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController ConfirmPasswordController = TextEditingController();
 
-  final signUpUrl = '192.168.228.123:8000/register';
+  final signUpUrl = apiUrl + 'account/register/';
 
   Future<void> sendPostRequest() async {
     var response = await http.post(Uri.parse(signUpUrl),
@@ -28,7 +29,8 @@ class _SignUpState extends State<SignUp> {
     if (response.statusCode == 200) {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("Sign Up Succesfull")));
-      Navigator.pushNamed(context, '/');
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => SignIn()));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Your Password is weak/user already exists"),
@@ -42,7 +44,7 @@ class _SignUpState extends State<SignUp> {
   }
 
   bool passWordChecker(TextEditingController p1, TextEditingController p2) {
-    if (p1 != p2) {
+    if (p1.value == p2.value) {
       return true;
     } else {
       return false;
@@ -62,6 +64,7 @@ class _SignUpState extends State<SignUp> {
             "https://images.unsplash.com/photo-1582314437409-7a48e94a6511?q=80&w=3120&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             fit: BoxFit.cover,
             height: double.infinity,
+            width: double.infinity,
           ),
           Container(
             decoration: const BoxDecoration(
@@ -142,14 +145,10 @@ class _SignUpState extends State<SignUp> {
                       onPressed: () {
                         if (passWordChecker(
                             passwordController, ConfirmPasswordController)) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SignIn()));
+                          sendPostRequest();
                         } else {
-                          print("password mismatch detected");
                           final snackBar = SnackBar(
-                              content: Text("Please check your password"));
+                              content: Text("Password are not the same"));
                           _displaySnackBar(snackBar);
                         }
                       },
