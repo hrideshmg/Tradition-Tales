@@ -1,3 +1,5 @@
+import 'package:culture_app/pages/quiz.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:culture_app/custom/custom_icons.dart';
@@ -184,7 +186,11 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                    QuizApp()
+                  ));
+                },
                 child: Padding(
                   padding: const EdgeInsets.only(
                       left: 10, right: 10, bottom: 10, top: 10),
