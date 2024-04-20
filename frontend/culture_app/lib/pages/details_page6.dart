@@ -1,94 +1,86 @@
-import 'package:culture_app/pages/quiz.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:culture_app/custom/custom_icons.dart';
 import 'package:flutter/widgets.dart';
 
-class DetailsPage extends StatefulWidget {
+class DetailsPage6 extends StatefulWidget {
   @override
-  _DetailsPageState createState() => _DetailsPageState();
+  _DetailsPage6State createState() => _DetailsPage6State();
 }
 
-class _DetailsPageState extends State<DetailsPage> {
+class _DetailsPage6State extends State<DetailsPage6> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black54,
-      body: Stack(fit: StackFit.expand, children: [
-        Opacity(
-          opacity: 0.5,
-          child: Image.asset(
-            "assets/images/vishu_inner_img.jpg",
-            fit: BoxFit.cover,
+      body: InkWell(
+        onDoubleTap: () {
+          _showBottomSheet();
+        },
+        child: Stack(fit: StackFit.expand, children: [
+          Opacity(
+            opacity: 0.5,
+            child: Image.asset(
+              "assets/images/jesus_cover.jpg",
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 80, left: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text('Vishu',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      letterSpacing: 1.1,
-                      color: Colors.white,
-                      fontSize: 50,
-                      fontFamily: "Sans-Regular")),
-              SizedBox(height: 10),
-              Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.schedule,
-                    color: Colors.white70,
-                    size: 25,
-                  ),
-                  SizedBox(width: 5),
-                  Text('30 DAYS',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontFamily: "Sans-Regular")),
-                  SizedBox(width: 20),
-                  SizedBox(width: 5),
-                ],
-              ),
-              SizedBox(height: 20),
-              SizedBox(height: 20),
-              Row(
-                children: <Widget>[
-                  SizedBox(width: 5),
-                  Flexible(
-                      child: Text(
-                    "Vishu, the festival that heralds the Malayalam New Year, is a tapestry of vibrant traditions and heartfelt customs celebrated primarily in the picturesque state of Kerala, India, and by the Malayali diaspora worldwide. As the sun rises on Vishu morning, homes are adorned with the auspicious Vishukkani, a breathtaking arrangement of symbolic items carefully curated to signify prosperity and abundance for the year ahead. The Vishukkani, with its ensemble of golden ornaments, freshly harvested grains, fragrant flowers, and a mirror reflecting the essence of renewal, serves as a profound reminder of hope and blessings.",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  )),
-                ],
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Center(
-                  child: ElevatedButton(
-                onPressed: () {
-                  _showBottomSheet();
-                },
-                child: Text(
-                  "More Information",
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                    textStyle: TextStyle(
-                        fontSize: 25,
+          Padding(
+            padding: const EdgeInsets.only(top: 80, left: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('Bible',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        letterSpacing: 1.1,
                         color: Colors.white,
-                        fontWeight: FontWeight.bold)),
-              )),
-            ],
+                        fontSize: 50,
+                        fontFamily: "Sans-Regular")),
+                SizedBox(height: 10),
+                Row(
+                  children: <Widget>[
+                    SizedBox(width: 5),
+                    SizedBox(width: 20),
+                    SizedBox(width: 5),
+                  ],
+                ),
+                SizedBox(height: 20),
+                SizedBox(height: 20),
+                Row(
+                  children: <Widget>[
+                    SizedBox(width: 5),
+                    Flexible(
+                        child: Text(
+                      "The Bible, a core text in Christianity and Judaism, unfolds over thousands of years. It starts with God creating the universe and humanity. Humans disobey, leading to hardship, but God promises redemption. Through figures like Abraham and Moses, God establishes a covenant with his chosen people, the Israelites. The story culminates with Jesus, the Messiah, who is both divine and human. Jesus' teachings of love and forgiveness offer salvation, while his death and resurrection conquer sin and death. The Bible serves as a foundation for faith, teaching about God, humanity's purpose, and the path to eternal life.",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    )),
+                  ],
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Center(
+                    child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "More Information",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                      textStyle: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold)),
+                )),
+              ],
+            ),
           ),
-        ),
-      ]),
+        ]),
+      ),
     );
   }
 
@@ -124,7 +116,7 @@ class _DetailsPageState extends State<DetailsPage> {
             padding: EdgeInsets.all(20),
             shrinkWrap: true,
             children: <Widget>[
-              Text('Vishu',
+              Text('Bible',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       letterSpacing: 1.1,
@@ -145,16 +137,10 @@ class _DetailsPageState extends State<DetailsPage> {
                         ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Image.asset(
-                              "assets/images/vishu_book_1.jpg",
+                              "assets/images/bible_book.jpeg",
                               width: 200,
                               height: 200,
                             )),
-                        SizedBox(),
-                        Image.asset(
-                          "assets/images/vishu_book_2.jpg",
-                          width: 200,
-                          height: 200,
-                        ),
                       ],
                     ),
                   )),
@@ -180,11 +166,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
                   ),
                 ),
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                    QuizApp()
-                  ));
-                },
+                onPressed: () {},
                 child: Padding(
                   padding: const EdgeInsets.only(
                       left: 10, right: 10, bottom: 10, top: 10),

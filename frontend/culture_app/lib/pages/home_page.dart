@@ -5,6 +5,10 @@ import 'package:culture_app/pages/ProfilePage.dart';
 import 'package:culture_app/pages/details_page2.dart';
 import 'package:culture_app/pages/details_page3.dart';
 import 'package:culture_app/pages/details_page4.dart';
+import 'package:culture_app/pages/details_page5.dart';
+import 'package:culture_app/pages/details_page5.dart';
+import 'package:culture_app/pages/details_page6.dart';
+import 'package:culture_app/pages/details_page7.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'details_page.dart';
@@ -21,6 +25,16 @@ List<element> elements = [
   element("assets/images/pic13.jpeg", DetailsPage2()),
   element("assets/images/onam.jpg", DetailsPage3()),
   element("assets/images/diwali.png", DetailsPage4()),
+];
+
+List<element> elements1 = [
+
+];
+
+List<element> elements2 = [
+  element("assets/images/English.jpeg", DetailsPage5()),
+  element("assets/images/jesus_cover.jpg", DetailsPage6()),
+  element("assets/images/mahabharat_book.jpg", DetailsPage7()),
 ];
 
 class HomePage extends StatefulWidget {
@@ -153,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
                             alignment: Alignment.center,
-                            child: Text('Artifacts',
+                            child: Text('Epics',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.black87,
@@ -166,26 +180,7 @@ class _HomePageState extends State<HomePage> {
                                 color: Color(0xFFe0f2f1)),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 12, right: 12, top: 8, bottom: 8),
-                          child: Container(
-                            padding: const EdgeInsets.only(
-                                left: 12, right: 12, top: 8, bottom: 8),
-                            alignment: Alignment.center,
-                            child: Text('India',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.black87,
-                                  fontSize: 20,
-                                  fontFamily: "Sans-Semi-Bold",
-                                )),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(13),
-                                shape: BoxShape.rectangle,
-                                color: Color(0xFFe0f2f1)),
-                          ),
-                        ),
+                       
                       ],
                     ),
                   ),
@@ -193,7 +188,7 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       CardScrollWidget(currentPage),
                       Positioned.fill(
-                        child: GestureDetector(
+                        child: InkWell(
                           onTap: () => {
                             Navigator.push(
                                 context,
@@ -275,7 +270,91 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
                             alignment: Alignment.center,
-                            child: Text('Artifacts',
+                            child: Text('Epics',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black87,
+                                  fontSize: 20,
+                                  fontFamily: "Sans-Semi-Bold",
+                                )),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(13),
+                                shape: BoxShape.rectangle,
+                                color: Color(0xFFe0f2f1)),
+                          ),
+                        ),
+                        
+                      ],
+                    ),
+                  ),
+                   Stack(
+                    children: <Widget>[
+                      CardScrollWidget1(currentPage),
+                      Positioned.fill(
+                        child: InkWell(
+                          onTap: () => {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        elements1[_pageIndex].page))
+                          },
+                          child: PageView.builder(
+                            itemCount: elements1.length,
+                            controller: controller,
+                            reverse: true,
+                            onPageChanged: (page_index) => {
+                              setState(() {
+                                _pageIndex = page_index;
+                              })
+                            },
+                            itemBuilder: (context, index) {
+                              return Container();
+                            },
+                          ),
+                        ))]),
+                ],
+              ),
+            ),
+         SafeArea(
+                child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: <Widget>[
+                        Padding(
+                            padding: const EdgeInsets.only(
+                                left: 12, right: 12, top: 8, bottom: 8),
+                            child: Container(
+                              padding: const EdgeInsets.only(
+                                  left: 12, right: 12, top: 8, bottom: 8),
+                              child: Container(
+                                padding: const EdgeInsets.only(
+                                    left: 12, right: 12, top: 8, bottom: 8),
+                                alignment: Alignment.center,
+                                child: Text('Festivals',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.black87,
+                                      fontSize: 20,
+                                      fontFamily: "Sans-Semi-Bold",
+                                    )),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(13),
+                                    shape: BoxShape.rectangle,
+                                    color: Color(0xFFe0f2f1)),
+                              ),
+                            )),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 12, right: 12, top: 8, bottom: 8),
+                          child: Container(
+                            padding: const EdgeInsets.only(
+                                left: 12, right: 12, top: 8, bottom: 8),
+                            alignment: Alignment.center,
+                            child: Text('Rituals',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.black87,
@@ -295,34 +374,55 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
                             alignment: Alignment.center,
-                            child: Text('India',
+                            child: Text('Epics',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.black87,
+                                  color: const Color.fromARGB(221, 255, 255, 255),
                                   fontSize: 20,
                                   fontFamily: "Sans-Semi-Bold",
                                 )),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13),
                                 shape: BoxShape.rectangle,
-                                color: Color(0xFFe0f2f1)),
+                                color: Color(0xFF1565c0)),
                           ),
                         ),
+                        
                       ],
                     ),
                   ),
-                  InkWell(
-                    child: Stack(
-                      children: <Widget>[
-                        CardScrollWidget(currentPage),
-                        Positioned.fill(child: Container())
-                      ],
-                    ),
+                  Stack(
+                    children: <Widget>[
+                      CardScrollWidget2(currentPage),
+                      Positioned.fill(
+                        child: GestureDetector(
+                          onTap: () => {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        elements2[_pageIndex].page))
+                          },
+                          child: PageView.builder(
+                            itemCount: elements2.length,
+                            controller: controller,
+                            reverse: true,
+                            onPageChanged: (page_index) => {
+                              setState(() {
+                                _pageIndex = page_index;
+                              })
+                            },
+                            itemBuilder: (context, index) {
+                              return Container();
+                            },
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 ],
               ),
-            ),
-          ])),
+            ))])),
     );
   }
 }
@@ -384,6 +484,220 @@ class CardScrollWidget extends StatelessWidget {
                     fit: StackFit.expand,
                     children: <Widget>[
                       Image.asset(elements[i].image_path, fit: BoxFit.cover),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: IconButton(
+                          icon: Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Icon(
+                              Icons.star_border,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                          ),
+                          onPressed: () {},
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 8.0),
+                              child: Text(titles[i],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontFamily: "SourceSansPro-Regular")),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+          cardList.add(cardItem);
+        }
+        return Stack(
+          children: cardList,
+        );
+      }),
+    );
+  }
+}
+
+class CardScrollWidget2 extends StatelessWidget {
+  var currentPage;
+  var padding = 20.0;
+  var verticalInset = 20.0;
+
+  CardScrollWidget2(this.currentPage);
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: widgetAspectRatio,
+      child: LayoutBuilder(builder: (context, contraints) {
+        var width = contraints.maxWidth;
+        var height = contraints.maxHeight;
+
+        var safeWidth = width - 2 * padding;
+        var safeHeight = height - 2 * padding;
+
+        var heightOfPrimaryCard = safeHeight;
+        var widthOfPrimaryCard = heightOfPrimaryCard * cardAspectRatio;
+
+        var primaryCardLeft = safeWidth - widthOfPrimaryCard;
+        var horizontalInset = primaryCardLeft / 2;
+
+        List<Widget> cardList = [];
+
+        for (var i = 0; i < elements2.length; i++) {
+          var delta = i - currentPage;
+          bool isOnRight = delta > 0;
+
+          var start = padding +
+              max(
+                  primaryCardLeft -
+                      horizontalInset * -delta * (isOnRight ? 15 : 1),
+                  0.0);
+
+          var cardItem = Positioned.directional(
+            top: padding + verticalInset * max(-delta, 0.0),
+            bottom: padding + verticalInset * max(-delta, 0.0),
+            start: start,
+            textDirection: TextDirection.rtl,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: Container(
+                decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                  BoxShadow(
+                      color: Colors.black12,
+                      offset: Offset(3.0, 6.0),
+                      blurRadius: 10.0)
+                ]),
+                child: AspectRatio(
+                  aspectRatio: cardAspectRatio,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      Image.asset(elements2[i].image_path, fit: BoxFit.cover),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: IconButton(
+                          icon: Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Icon(
+                              Icons.star_border,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                          ),
+                          onPressed: () {},
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 8.0),
+                              child: Text(titles[i],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontFamily: "SourceSansPro-Regular")),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+          cardList.add(cardItem);
+        }
+        return Stack(
+          children: cardList,
+        );
+      }),
+    );
+  }
+}
+
+class CardScrollWidget1 extends StatelessWidget {
+  var currentPage;
+  var padding = 20.0;
+  var verticalInset = 20.0;
+
+  CardScrollWidget1(this.currentPage);
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: widgetAspectRatio,
+      child: LayoutBuilder(builder: (context, contraints) {
+        var width = contraints.maxWidth;
+        var height = contraints.maxHeight;
+
+        var safeWidth = width - 2 * padding;
+        var safeHeight = height - 2 * padding;
+
+        var heightOfPrimaryCard = safeHeight;
+        var widthOfPrimaryCard = heightOfPrimaryCard * cardAspectRatio;
+
+        var primaryCardLeft = safeWidth - widthOfPrimaryCard;
+        var horizontalInset = primaryCardLeft / 2;
+
+        List<Widget> cardList = [];
+
+        for (var i = 0; i < elements1.length; i++) {
+          var delta = i - currentPage;
+          bool isOnRight = delta > 0;
+
+          var start = padding +
+              max(
+                  primaryCardLeft -
+                      horizontalInset * -delta * (isOnRight ? 15 : 1),
+                  0.0);
+
+          var cardItem = Positioned.directional(
+            top: padding + verticalInset * max(-delta, 0.0),
+            bottom: padding + verticalInset * max(-delta, 0.0),
+            start: start,
+            textDirection: TextDirection.rtl,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: Container(
+                decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                  BoxShadow(
+                      color: Colors.black12,
+                      offset: Offset(3.0, 6.0),
+                      blurRadius: 10.0)
+                ]),
+                child: AspectRatio(
+                  aspectRatio: cardAspectRatio,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      Image.asset(elements1[i].image_path, fit: BoxFit.cover),
                       Align(
                         alignment: Alignment.topRight,
                         child: IconButton(
