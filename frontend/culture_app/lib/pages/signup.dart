@@ -14,7 +14,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController ConfirmPasswordController = TextEditingController();
 
-  final signUpUrl = '127.0.0.1:8000/register';
+  final signUpUrl = '192.168.228.123/register';
 
   Future<void> sendPostRequest() async {
     var response = await http.post(Uri.parse(signUpUrl),
