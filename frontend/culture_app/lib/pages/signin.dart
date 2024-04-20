@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:culture_app/Navigator.dart';
+import 'package:culture_app/pages/home_page.dart';
 import 'package:culture_app/pages/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -49,117 +51,116 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            "assets/images/pooram.jpeg",
-            fit: BoxFit.cover,
-            height: double.infinity,
-          ),
-          Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: <Color>[
-                  Colors.transparent,
-                  Color.fromARGB(255, 0, 0, 0)
-                ],
-                    stops: [
-                  0.25,
-                  0.9
-                ])),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(25.0),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 495,
-                  ), //495
-                  const SizedBox(
-                    height: 18,
-                  ),
-                  TextField(
-                    style: const TextStyle(color: Colors.white),
-                    controller: UserNameController,
-                    decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        hintText: "username",
-                        hintStyle: TextStyle(color: Colors.white),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12)),
-                        suffixIcon: const Icon(
-                          Icons.person,
-                          color: Colors.white,
-                        )),
-                  ),
-                  const SizedBox(
-                    height: 18,
-                  ),
-                  TextField(
-                    style: const TextStyle(color: Colors.white),
-                    controller: PasswordController,
-                    decoration: InputDecoration(
-                        hintText: "password",
-                        hintStyle: const TextStyle(color: Colors.white),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12)),
-                        suffixIcon: const Icon(
-                          Icons.password,
-                          color: Colors.white,
-                        )),
-                  ),
-                  const SizedBox(
-                    height: 22,
-                  ),
-                  Row(
-                    children: [
-                      Text("Don't have an account?",
-                          style: TextStyle(color: Colors.white)),
-                      SizedBox(
-                        width: 9,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            SlideRightRoute(page: SignUp()),
-                          );
-                        },
-                        child: const Text(
-                          "Sign-up",
-                          style: TextStyle(color: Color(0xff4782ba)),
-                        ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 75,
-                  ),
-                  ElevatedButton(
-                      onPressed: () {
-                        sendPostRequest();
-                      },
-                      child: Text(
-                        "Sign-In",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                      style: ButtonStyle(
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10))),
-                          minimumSize: MaterialStateProperty.all(
-                              const Size(double.infinity, 50)),
-                          backgroundColor:
-                              MaterialStateProperty.all(Color(0xff4782ba)))),
-                ],
-              ),
+      body: Expanded(
+        child: Stack(
+          children: [
+            Image.network(
+              "https://images.unsplash.com/photo-1582314437409-7a48e94a6511?q=80&w=3120&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              fit: BoxFit.cover,
+              height: double.infinity,
             ),
-          )
-        ],
+            Container(
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: <Color>[
+                    Colors.transparent,
+                    Color.fromARGB(255, 0, 0, 0)
+                  ],
+                      stops: [
+                    0.25,
+                    0.9
+                  ])),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20,right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 495,
+                    ), //495
+                    const SizedBox(
+                      height: 18,
+                    ),
+                    TextField(
+                      style: const TextStyle(color: Colors.white),
+                      controller: UserNameController,
+                      decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          hintText: "Username",
+                          hintStyle: TextStyle(color: Colors.white),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                          suffixIcon: const Icon(
+                            Icons.person,
+                            color: Colors.white,
+                          )),
+                    ),
+                    const SizedBox(
+                      height: 18,
+                    ),
+                    TextField(
+                      style: const TextStyle(color: Colors.white),
+                      controller: PasswordController,
+                      decoration: InputDecoration(
+                          hintText: "Password",
+                          hintStyle: const TextStyle(color: Colors.white),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                          suffixIcon: const Icon(
+                            Icons.password,
+                            color: Colors.white,
+                          )),
+                    ),
+                    const SizedBox(
+                      height: 22,
+                    ),
+                    Row(
+                      children: [
+                        Text("Don't have an account?",
+                            style: TextStyle(color: Colors.white)),
+                        SizedBox(
+                          width: 9,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              SlideRightRoute(page: SignUp()),
+                            );
+                          },
+                          child: const Text(
+                            "Sign-up",
+                            style: TextStyle(color: Color(0xff4782ba)),
+                          ),
+                        )
+                      ],
+                    ),
+                 SizedBox(height: 10,),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: ((context) => Navigation1())));
+                        },
+                        child: Text(
+                          "Sign-In",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                            minimumSize: MaterialStateProperty.all(
+                                const Size(double.infinity, 50)),
+                            backgroundColor:
+                                MaterialStateProperty.all(Color(0xff4782ba)))),
+                  ],
+                ),
+              ),
+            
+          ],
+        ),
       ),
     );
   }

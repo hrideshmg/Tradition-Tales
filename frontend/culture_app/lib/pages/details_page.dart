@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:culture_app/custom/custom_icons.dart';
+import 'package:flutter/widgets.dart';
 
 class DetailsPage extends StatefulWidget {
   @override
@@ -16,45 +18,22 @@ class _DetailsPageState extends State<DetailsPage> {
           _showBottomSheet();
         },
         child: Stack(fit: StackFit.expand, children: [
-          Image.asset(
-            "assets/images/pic7.jpeg",
-            fit: BoxFit.cover,
+          Opacity(
+            opacity: 0.5,
+            child: Image.network("https://images.news18.com/ibnlive/uploads/2023/04/happy-vishu-2023-wishes-images-greetings-malayaman-new-year-kerala.jpg",fit:BoxFit.cover,
+                 ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 40, right: 8, left: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(
-                    Icons.arrow_back,
-                    color: Colors.white70,
-                    size: 30.0,
-                  ),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.more_vert,
-                    color: Colors.white70,
-                    size: 30.0,
-                  ),
-                  onPressed: () {},
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 190, left: 20),
+            padding: const EdgeInsets.only(top: 80, left: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('Maldives \n Tour',
+                Text('Vishu',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     letterSpacing: 1.1,
                     color: Colors.white,
-                    fontSize: 30,
+                    fontSize: 50,
                     fontFamily: "Sans-Regular")),
                 SizedBox(height: 10),
                 Row(
@@ -71,69 +50,34 @@ class _DetailsPageState extends State<DetailsPage> {
                         fontSize: 15,
                         fontFamily: "Sans-Regular")),
                     SizedBox(width: 20),
-                    Icon(
-                      Icons.outlined_flag,
-                      color: Colors.white70,
-                      size: 25,
-                    ),
+                    
                     SizedBox(width: 5),
-                    Text('862 KM',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontFamily: "Sans-Regular")),
+                    
                   ],
                 ),
                 SizedBox(height: 20),
-                Text(
-                  'Islam was introduced to the Maldivian\n archipelago in the 12th century which \n was consolidated as a sultanate,\n developing strong commercial \n and cultural',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontFamily: "Sans-Regular")),
                 SizedBox(height: 20),
+            
                 Row(
                   children: <Widget>[
-                    Icon(
-                      Icons.favorite_border,
-                      color: Colors.white70,
-                      size: 25,
-                    ),
                     SizedBox(width: 5),
-                    Text('295',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        fontFamily: "Sans-Regular")),
-                  ],
+                        Flexible(child: Text("Vishu, the festival that heralds the Malayalam New Year, is a tapestry of vibrant traditions and heartfelt customs celebrated primarily in the picturesque state of Kerala, India, and by the Malayali diaspora worldwide. As the sun rises on Vishu morning, homes are adorned with the auspicious Vishukkani, a breathtaking arrangement of symbolic items carefully curated to signify prosperity and abundance for the year ahead. The Vishukkani, with its ensemble of golden ornaments, freshly harvested grains, fragrant flowers, and a mirror reflecting the essence of renewal, serves as a profound reminder of hope and blessings.",style: TextStyle(color: Colors.white,fontSize: 18),))
+                 , ],
                 ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 600),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: <Widget>[
-                    _buildImage('assets/images/pic7.jpeg'),
-                    _buildImage('assets/images/pic9.jpeg'),
-                    _buildImage('assets/images/pic11.jpeg'),
-                    _buildImage('assets/images/pic12.jpeg'),
-                    _buildImage('assets/images/pic13.jpeg'),
-                  ],
-                ),
-              ),
+                SizedBox(height: 50,),
+              Center(child:  ElevatedButton(onPressed: () {}, child: Text("More Information",style: TextStyle(color: Colors.white),),style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                textStyle: TextStyle(
+                fontSize: 25,
+                color: Colors.white,
+                fontWeight: FontWeight.bold)),)),],
             ),
           ),
         ]),
       ),
     );
   }
-
   Widget _buildImage(String imagePath) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -148,7 +92,6 @@ class _DetailsPageState extends State<DetailsPage> {
       ),
     );
   }
-
   void _showBottomSheet() {
     showModalBottomSheet(
       backgroundColor: Colors.transparent,
@@ -166,15 +109,7 @@ class _DetailsPageState extends State<DetailsPage> {
             padding: EdgeInsets.all(20),
             shrinkWrap: true,
             children: <Widget>[
-              FloatingActionButton(
-                elevation: 5,
-                child: Icon(Icons.near_me,
-                  size: 30, color: Color(0xFF0097a7)),
-                backgroundColor: Colors.white,
-                onPressed: () {},
-              ),
-              SizedBox(height: 20),
-              Text('Maldives Tour',
+              Text('Vishu',
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   letterSpacing: 1.1,
@@ -182,16 +117,19 @@ class _DetailsPageState extends State<DetailsPage> {
                   fontSize: 30,
                   fontFamily: "Sans-Semi-Bold")),
               SizedBox(height: 20),
-              Text(
-                'Islam was introduced to the Maldivian \narchipelago in the 12th century which was\nconsolidated as a sultanate ',
-                style: TextStyle(
-                  color: Colors.black26,
-                  letterSpacing: 1,
-                  height: 1.25,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                  fontFamily: "Sans-Regular")),
-              SizedBox(height: 20),
+              Text("Books to refer",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+              Padding(padding: EdgeInsets.only(top: 25) ,child: 
+              SingleChildScrollView(scrollDirection: Axis.horizontal,child: Row(children: [
+                ClipRRect(
+                  borderRadius: 
+            BorderRadius.circular(10),
+              child: Image.network("https://prodimage.images-bn.com/lf?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B600%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&set=key%5Bresolve.format%5D,value%5Bwebp%5D&source=url%5Bhttps://prodimage.images-bn.com/pimages/9798374983210_p0_v2_s600x595.jpg%5D&scale=options%5Blimit%5D,size%5B600x10000%5D&sink=format%5Bwebp%5D",width: 200,height: 200,)),
+                SizedBox(),
+                 Image.network("https://prodimage.images-bn.com/lf?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B600%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&set=key%5Bresolve.format%5D,value%5Bwebp%5D&source=url%5Bhttps://prodimage.images-bn.com/pimages/9798374983210_p0_v2_s600x595.jpg%5D&scale=options%5Blimit%5D,size%5B600x10000%5D&sink=format%5Bwebp%5D",width: 200,height: 200,),
+                 SizedBox(),
+                  Image.network("https://prodimage.images-bn.com/lf?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B600%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&set=key%5Bresolve.format%5D,value%5Bwebp%5D&source=url%5Bhttps://prodimage.images-bn.com/pimages/9798374983210_p0_v2_s600x595.jpg%5D&scale=options%5Blimit%5D,size%5B600x10000%5D&sink=format%5Bwebp%5D",width: 200,height: 200,)
+              ],),)),
+            
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -201,29 +139,6 @@ class _DetailsPageState extends State<DetailsPage> {
                   _buildBottomSheetButton(Icons.whatshot, '80'),
                 ],
               ),
-              SizedBox(height: 20),
-              Row(
-                children: <Widget>[
-                  _buildUserAvatar('assets/images/user1.png'),
-                  _buildUserAvatar('assets/images/user2.png'),
-                  _buildUserAvatar('assets/images/user3.png'),
-                  Spacer(),
-                  Container(
-                    width: 60,
-                    height: 60,
-                    child: Icon(
-                      CustomIcons.option,
-                      size: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xFFe0f2f1),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              _buildLocationCard(),
               SizedBox(height: 20),
               ElevatedButton(
                 style: ButtonStyle(
@@ -239,14 +154,16 @@ class _DetailsPageState extends State<DetailsPage> {
                 ),
                 onPressed: () {},
                 child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Text('Commence The Tour',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFFffffff),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      fontFamily: "Sans-Regular")),
+                  padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10,top: 10),
+                  child: Center(
+                    child: Text('Go for a Quest',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color(0xFFffffff),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        fontFamily: "Sans-Regular")),
+                  ),
                 ),
               ),
             ],
