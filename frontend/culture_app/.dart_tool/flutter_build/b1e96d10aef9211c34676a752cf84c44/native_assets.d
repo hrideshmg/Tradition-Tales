@@ -1,0 +1,1 @@
+ /home/hridesh/Coding/repositories/Define24/frontend/culture_app/.dart_tool/flutter_build/b1e96d10aef9211c34676a752cf84c44/native_assets.yaml: 
