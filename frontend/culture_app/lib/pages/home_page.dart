@@ -64,8 +64,31 @@ class _HomePageState extends State<HomePage> {
           appBar: AppBar(
               automaticallyImplyLeading: false, // Ensure no default back button
               titleSpacing: 0, // Reduce spacing between title and actions
-              title: Image.asset("assets/images/image1.png",width: 250,height: 150,),
-              toolbarHeight: 100,),
+              title: Padding(
+                padding: EdgeInsets.all(8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Namaste",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 25,
+                        fontFamily: "inter",
+                        letterSpacing: 1,
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        CustomIcons.option,
+                        color: Colors.black87,
+                        size: 10,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              )),
           body: PageView(children: [
             SafeArea(
                 child: SingleChildScrollView(
@@ -76,25 +99,28 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(
-                              left: 12, right: 12, top: 8, bottom: 8),
-                          child: Container(
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
-                            alignment: Alignment.center,
-                            child: Text('Festivals',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontFamily: "Sans-Semi-Bold",
-                                )),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(13),
-                                shape: BoxShape.rectangle,
-                                color: Color(0xFF1565c0)),
-                          ),
-                        ),
+                            child: Container(
+                              padding: const EdgeInsets.only(
+                                  left: 12, right: 12, top: 8, bottom: 8),
+                              child: Container(
+                                padding: const EdgeInsets.only(
+                                    left: 12, right: 12, top: 8, bottom: 8),
+                                alignment: Alignment.center,
+                                child: Text('Festivals',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontFamily: "Sans-Semi-Bold",
+                                    )),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(13),
+                                    shape: BoxShape.rectangle,
+                                    color: Color(0xFF1565c0)),
+                              ),
+                            )),
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 12, right: 12, top: 8, bottom: 8),
@@ -190,7 +216,6 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             )),
-            
             SingleChildScrollView(
               child: Column(
                 children: [
@@ -238,7 +263,6 @@ class _HomePageState extends State<HomePage> {
                                 color: Color(0xFF1565c0)),
                           ),
                         ),
-                        
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 12, right: 12, top: 8, bottom: 8),
@@ -282,7 +306,6 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  
                   InkWell(
                     child: Stack(
                       children: <Widget>[
