@@ -1,6 +1,6 @@
 # Do not remove or rename entries in this file, only add new ones
 # See https://github.com/flutter/flutter/issues/128635 for more context.
-
+frontend/culture_app/.dart_tool/*
 # Miscellaneous
 *.class
 *.lock
@@ -44,7 +44,7 @@ frontend/culture_app/analysis_benchmark.json
 
 # Flutter/Dart/Pub related
 **/doc/api/
-frontend/culture_app/.dart_tool/
+frontend/culture_app/.dart_tool
 frontend/culture_app/.flutter-plugins
 frontend/culture_app/.flutter-plugins-dependencies
 **/generated_plugin_registrant.dart
