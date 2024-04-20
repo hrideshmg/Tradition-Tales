@@ -2,22 +2,56 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
-class SignIn extends StatelessWidget {
+class SignIn extends StatefulWidget {
   const SignIn({super.key});
+
+  @override
+  State<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  late String username = UserNameController.text;
+
+  final storage = const FlutterSecureStorage();
+  final loginUrl = "127.0.0.1:800";
+
+  TextEditingController UserNameController = TextEditingController();
+  TextEditingController PasswordController = TextEditingController();
+
+  Future<dynamic> sendPostRequest() async {
+    var response = await http.post(Uri.parse(loginUrl),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({
+          "username": UserNameController.text,
+          "password": PasswordController.text,
+        }));
+
+    if (response.statusCode == 200) {
+      String token = jsonDecode(response.body)["token"];
+
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Sign in Succesfull"),
+      ));
+      await storage.write(key: 'token', value: token);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Sign in failed, please try again"),
+      ));
+    }
+    return response;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body:Stack(
-
-        // decoration:const BoxDecoration(
-        //   image: DecorationImage(image: AssetImage("assets/images/Totem.jpg"),fit: BoxFit.cover),
-        //   gradient: RadialGradient(center: Alignment.center,radius: 1.0,colors: <Color>[Colors.blue,Colors.white],stops: [0.1,1.0]),
-        // ),
         children:  [
           Image.asset("assets/images/pooram.jpeg",fit: BoxFit.cover,height: double.infinity,),
-          Container(decoration: BoxDecoration(
+          Container(decoration:const BoxDecoration(
             gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomCenter,colors: <Color>[Colors.transparent,Color.fromARGB(255, 0, 0, 0)],stops: [0.25,0.9])
           ),),
           Padding(
@@ -59,7 +93,9 @@ class SignIn extends StatelessWidget {
                 ],
               )
               ,const SizedBox(height: 75,),
-              ElevatedButton(onPressed: null,child: Text("Sign-In",style: TextStyle(fontSize:18,color: Colors.white ),),style: ButtonStyle(
+              ElevatedButton(onPressed: () {sendPostRequest();},
+              child: Text("Sign-In",style: TextStyle(fontSize:18,color: Colors.white ),),
+              style: ButtonStyle(
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                 minimumSize: MaterialStateProperty.all(const Size(double.infinity,50)),backgroundColor:MaterialStateProperty.all(Color(0xff4782ba)) )),
             ],),
