@@ -1,3 +1,4 @@
+import 'package:culture_app/pages/signin.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -41,7 +42,7 @@ class _SignUpState extends State<SignUp> {
   }
 
   bool passWordChecker(TextEditingController p1, TextEditingController p2) {
-    if (p1 == p2) {
+    if (p1 != p2) {
       return true;
     } else {
       return false;
@@ -57,8 +58,8 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(
-            "assets/images/pooram.jpeg",
+          Image.network(
+            "https://images.unsplash.com/photo-1582314437409-7a48e94a6511?q=80&w=3120&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             fit: BoxFit.cover,
             height: double.infinity,
           ),
@@ -82,12 +83,7 @@ class _SignUpState extends State<SignUp> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 495,
-                  ),
-                  const SizedBox(
-                    height: 18,
-                  ),
+                  SizedBox(height: 400,),
                   TextField(
                     obscureText: false,
                     style: const TextStyle(color: Colors.white),
@@ -144,7 +140,7 @@ class _SignUpState extends State<SignUp> {
                       onPressed: () {
                         if (passWordChecker(
                             passwordController, ConfirmPasswordController)) {
-                          sendPostRequest();
+                         Navigator.push(context,MaterialPageRoute(builder: (context)=>SignIn()));
                         } else {
                           print("password mismatch detected");
                           final snackBar = SnackBar(

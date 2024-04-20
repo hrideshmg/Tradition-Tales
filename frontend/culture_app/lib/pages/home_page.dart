@@ -64,31 +64,8 @@ class _HomePageState extends State<HomePage> {
           appBar: AppBar(
               automaticallyImplyLeading: false, // Ensure no default back button
               titleSpacing: 0, // Reduce spacing between title and actions
-              title: Padding(
-                padding: EdgeInsets.all(8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Namaste",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 25,
-                        fontFamily: "Sans-Bold",
-                        letterSpacing: 1,
-                      ),
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        CustomIcons.option,
-                        color: Colors.black87,
-                        size: 10,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              )),
+              title: Image.asset("assets/images/image1.png",width: 250,height: 150,),
+              toolbarHeight: 100,),
           body: PageView(children: [
             SafeArea(
                 child: SingleChildScrollView(
