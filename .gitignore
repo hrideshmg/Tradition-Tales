@@ -131,3 +131,4 @@ app.*.symbols
 !/dev/ci/**/Gemfile.lock
 !.vscode/settings.json
 backend/.venv
+backend/*.sqlite3
