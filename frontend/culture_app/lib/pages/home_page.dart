@@ -1,4 +1,6 @@
 import 'dart:math';
+import 'package:flutter/cupertino.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:culture_app/custom/custom_icons.dart';
 import 'package:culture_app/data/data.dart';
 import 'package:culture_app/pages/ProfilePage.dart';
@@ -8,14 +10,21 @@ import 'details_page.dart';
 import 'Map.dart';
 
 class element {
-  element(this.image_path, this.page);
+  element(this.image_path, this.page, this.title);
   final String image_path;
   final Widget page;
+  final String title;
 }
 
 List<element> elements = [
-  element("assets/images/pic7.jpeg", DetailsPage()),
-  element("assets/images/pic13.jpeg", Placeholder())
+  element("assets/images/pic7.jpeg", DetailsPage(), "Vishu"),
+  element("assets/images/pic13.jpeg", Placeholder(), "Theyyam")
+];
+
+List<String> trivias = [
+  "In Hindu mythology, Mahabali was a demon king belonging to the Asura (demon) clan. Despite being a demon, he was known for his righteousness and piety.",
+  "While we might think of outhouses for ancient times, the Indus Valley Civilization had a surprisingly sophisticated toilet system around 2800 BC.",
+  "The Rigveda, one of the oldest surviving texts, contains some of the earliest ideas about the cosmos. Believe it or not, it mentions our solar system!"
 ];
 
 class HomePage extends StatefulWidget {
@@ -28,7 +37,7 @@ class HomePage extends StatefulWidget {
 var cardAspectRatio = 12.0 / 16.0;
 var widgetAspectRatio = cardAspectRatio * 1.2;
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   var currentPage = images.length - 1.0;
   var title;
   var desc;
@@ -36,6 +45,9 @@ class _HomePageState extends State<HomePage> {
   var rate;
   int _index = 0;
   int _pageIndex = 0;
+  late PageController _pageViewController;
+  late TabController _tabController;
+  int _currentPageIndex = 0;
   void _incrementTab(index) {
     setState(() {
       _index = index;
@@ -43,8 +55,23 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _pageViewController = PageController();
+    _tabController = TabController(length: trivias.length, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageViewController.dispose();
+    _tabController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     PageController controller = PageController(initialPage: images.length - 1);
+    PageController triviaController = PageController(initialPage: 0);
     controller.addListener(() {
       setState(() {
         currentPage = controller.page!;
@@ -69,22 +96,17 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Namaste",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 25,
-                        fontFamily: "inter",
-                        letterSpacing: 1,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Namaste",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25,
+                          fontFamily: "inter",
+                          letterSpacing: 1,
+                        ),
                       ),
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        CustomIcons.option,
-                        color: Colors.black87,
-                        size: 10,
-                      ),
-                      onPressed: () {},
                     ),
                   ],
                 ),
@@ -98,32 +120,29 @@ class _HomePageState extends State<HomePage> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: <Widget>[
-                        Padding(
+                        Container(
+                          padding: const EdgeInsets.only(
+                              left: 15, right: 5, top: 8, bottom: 8),
+                          child: Container(
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
-                            child: Container(
-                              padding: const EdgeInsets.only(
-                                  left: 12, right: 12, top: 8, bottom: 8),
-                              child: Container(
-                                padding: const EdgeInsets.only(
-                                    left: 12, right: 12, top: 8, bottom: 8),
-                                alignment: Alignment.center,
-                                child: Text('Festivals',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                      fontFamily: "Sans-Semi-Bold",
-                                    )),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(13),
-                                    shape: BoxShape.rectangle,
-                                    color: Color(0xFF1565c0)),
-                              ),
-                            )),
+                            alignment: Alignment.center,
+                            child: Text('Festivals',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontFamily: "Sans-Semi-Bold",
+                                )),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(13),
+                                shape: BoxShape.rectangle,
+                                color: Color(0xFF1565c0)),
+                          ),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 12, right: 12, top: 8, bottom: 8),
+                              left: 5, right: 5, top: 8, bottom: 8),
                           child: Container(
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
@@ -143,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 12, right: 12, top: 8, bottom: 8),
+                              left: 5, right: 5, top: 8, bottom: 8),
                           child: Container(
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
@@ -163,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 12, right: 12, top: 8, bottom: 8),
+                              left: 5, right: 12, top: 8, bottom: 8),
                           child: Container(
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
@@ -212,6 +231,51 @@ class _HomePageState extends State<HomePage> {
                         ),
                       )
                     ],
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color(0xff13CA9E)),
+                    width: MediaQuery.of(context).size.width * 0.89,
+                    height: MediaQuery.of(context).size.height * 0.18,
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned.fill(
+                          child: PageView(
+                            controller: _pageViewController,
+                            onPageChanged: _handlePageViewChanged,
+                            children: [
+                              for (String trivia in trivias)
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(children: [
+                                    Text(
+                                      "Trivia",
+                                      style: GoogleFonts.inter(
+                                        textStyle: TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    Text(
+                                      textAlign: TextAlign.center,
+                                      trivia,
+                                      style: GoogleFonts.inter(
+                                          textStyle: TextStyle(
+                                              fontSize: 18, height: 1.1)),
+                                    )
+                                  ]),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  PageIndicator(
+                    tabController: _tabController,
+                    currentPageIndex: _currentPageIndex,
+                    onUpdateCurrentPageIndex: _updateCurrentPageIndex,
                   ),
                 ],
               ),
@@ -306,18 +370,26 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  InkWell(
-                    child: Stack(
-                      children: <Widget>[
-                        CardScrollWidget(currentPage),
-                        Positioned.fill(child: Container())
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),
           ])),
+    );
+  }
+
+  void _handlePageViewChanged(int currentPageIndex) {
+    _tabController.index = currentPageIndex;
+    setState(() {
+      _currentPageIndex = currentPageIndex;
+    });
+  }
+
+  void _updateCurrentPageIndex(int index) {
+    _tabController.index = index;
+    _pageViewController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
     );
   }
 }
@@ -387,7 +459,7 @@ class CardScrollWidget extends StatelessWidget {
                             child: Icon(
                               Icons.star_border,
                               color: Colors.white,
-                              size: 20,
+                              size: 35,
                             ),
                           ),
                           onPressed: () {},
@@ -402,8 +474,20 @@ class CardScrollWidget extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 16.0, vertical: 8.0),
-                              child: Text(titles[i],
+                              child: Text(elements[i].title,
                                   style: TextStyle(
+                                      shadows: <Shadow>[
+                                        Shadow(
+                                          offset: Offset(1.0, 1.0),
+                                          blurRadius: 3.0,
+                                          color: Color.fromARGB(255, 0, 0, 0),
+                                        ),
+                                        Shadow(
+                                          offset: Offset(1.0, 1.0),
+                                          blurRadius: 8.0,
+                                          color: Color.fromARGB(125, 0, 0, 255),
+                                        ),
+                                      ],
                                       color: Colors.white,
                                       fontSize: 20,
                                       fontFamily: "SourceSansPro-Regular")),
@@ -426,6 +510,66 @@ class CardScrollWidget extends StatelessWidget {
           children: cardList,
         );
       }),
+    );
+  }
+}
+
+class PageIndicator extends StatelessWidget {
+  const PageIndicator({
+    super.key,
+    required this.tabController,
+    required this.currentPageIndex,
+    required this.onUpdateCurrentPageIndex,
+  });
+
+  final int currentPageIndex;
+  final TabController tabController;
+  final void Function(int) onUpdateCurrentPageIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          IconButton(
+            splashRadius: 16.0,
+            padding: EdgeInsets.zero,
+            onPressed: () {
+              if (currentPageIndex == 0) {
+                return;
+              }
+              onUpdateCurrentPageIndex(currentPageIndex - 1);
+            },
+            icon: const Icon(
+              Icons.arrow_left_rounded,
+              size: 32.0,
+            ),
+          ),
+          TabPageSelector(
+            controller: tabController,
+            color: colorScheme.background,
+            selectedColor: colorScheme.primary,
+          ),
+          IconButton(
+            splashRadius: 16.0,
+            padding: EdgeInsets.zero,
+            onPressed: () {
+              if (currentPageIndex == 2) {
+                return;
+              }
+              onUpdateCurrentPageIndex(currentPageIndex + 1);
+            },
+            icon: const Icon(
+              Icons.arrow_right_rounded,
+              size: 32.0,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
