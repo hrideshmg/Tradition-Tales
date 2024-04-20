@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:culture_app/Navigator.dart';
 import 'package:culture_app/pages/home_page.dart';
 import 'package:culture_app/pages/signup.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -73,8 +74,9 @@ class _SignInState extends State<SignIn> {
                     0.9
                   ])),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20,right: 20),
+            SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -138,10 +140,15 @@ class _SignInState extends State<SignIn> {
                         )
                       ],
                     ),
-                 SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: ((context) => Navigation1())));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => Navigation1())));
                         },
                         child: Text(
                           "Sign-In",
@@ -158,7 +165,7 @@ class _SignInState extends State<SignIn> {
                   ],
                 ),
               ),
-            
+            ),
           ],
         ),
       ),
