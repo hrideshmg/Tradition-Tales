@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:culture_app/pages/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -64,6 +65,7 @@ class _SignInState extends State<SignIn> {
               const SizedBox(height: 18,),
               TextField(
                 style:const TextStyle(color: Colors.white),
+                controller: UserNameController,
                 decoration: InputDecoration(
                   fillColor: Colors.white,
                   hintText: "username",
@@ -75,6 +77,7 @@ class _SignInState extends State<SignIn> {
               const SizedBox(height: 18,),
               TextField(
                 style:const TextStyle(color: Colors.white),
+                controller: PasswordController,
                 decoration: InputDecoration(
                   hintText: "password",
                   hintStyle:const TextStyle(color: Colors.white),
@@ -87,7 +90,7 @@ class _SignInState extends State<SignIn> {
                   Text("Don't have an account?",style: TextStyle(color: Colors.white)),
                   SizedBox(width: 9,),
                   GestureDetector(
-                    onTap: null,
+                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>const SignUp()));},
                     child:const Text("Sign-up",style: TextStyle(color: Color(0xff4782ba)),),
                   )
                 ],
