@@ -190,6 +190,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             )),
+            
             SingleChildScrollView(
               child: Column(
                 children: [
@@ -207,14 +208,14 @@ class _HomePageState extends State<HomePage> {
                             child: Text('Festivals',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontSize: 20,
                                   fontFamily: "Sans-Semi-Bold",
                                 )),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13),
                                 shape: BoxShape.rectangle,
-                                color: Color(0xFF1565c0)),
+                                color: Color(0xFFe0f2f1)),
                           ),
                         ),
                         Padding(
@@ -227,16 +228,17 @@ class _HomePageState extends State<HomePage> {
                             child: Text('Rituals',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.black87,
+                                  color: Colors.white,
                                   fontSize: 20,
                                   fontFamily: "Sans-Semi-Bold",
                                 )),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13),
                                 shape: BoxShape.rectangle,
-                                color: Color(0xFFe0f2f1)),
+                                color: Color(0xFF1565c0)),
                           ),
                         ),
+                        
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 12, right: 12, top: 8, bottom: 8),
@@ -280,6 +282,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
+                  
                   InkWell(
                     child: Stack(
                       children: <Widget>[
