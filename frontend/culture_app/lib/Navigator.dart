@@ -36,6 +36,7 @@ class _NavigatorState extends State<Navigation1> {
               backgroundColor: Colors.white,
               iconSize: 30,
               elevation: 2,
+              selectedFontSize: 0,
               type: BottomNavigationBarType.fixed,
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
