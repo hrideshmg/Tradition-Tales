@@ -15,7 +15,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController ConfirmPasswordController = TextEditingController();
 
-  final signUpUrl = '192.168.228.123/register';
+  final signUpUrl = '192.168.228.123:8000/register';
 
   Future<void> sendPostRequest() async {
     var response = await http.post(Uri.parse(signUpUrl),
@@ -83,7 +83,9 @@ class _SignUpState extends State<SignUp> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 400,),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 1.8,
+                  ),
                   TextField(
                     obscureText: false,
                     style: const TextStyle(color: Colors.white),
@@ -140,7 +142,10 @@ class _SignUpState extends State<SignUp> {
                       onPressed: () {
                         if (passWordChecker(
                             passwordController, ConfirmPasswordController)) {
-                         Navigator.push(context,MaterialPageRoute(builder: (context)=>SignIn()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignIn()));
                         } else {
                           print("password mismatch detected");
                           final snackBar = SnackBar(
