@@ -10,7 +10,7 @@ class QuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Vishu Quiz',
+      title: 'Holi Quiz',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -33,46 +33,55 @@ class _QuizScreenState extends State<QuizScreen> {
   List<Map<String, dynamic>> _questions = [
     {
       'question':
-          'Vishu is a festival celebrated in Kerala, India, that marks the beginning of their traditional new year. What is the approximate Gregorian calendar month when Vishu usually falls?',
-      'options': ['January', 'April', 'July', 'October'],
-      'correctAnswerIndex': 1,
-      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
-    },
-    {
-      'question':
-          'Vishu kani is an important Vishu tradition involving arranging auspicious items for the first thing someone sees in the new year.  What might you typically find in a vishu kani?',
+          'Holi, also known as the Festival of Colors, is a vibrant celebration observed in India and other parts of the world. What is the main activity associated with Holi?',
       'options': [
-        'A brightly lit lamp',
-        'A plate of sweets and snacks',
-        'A set of new clothes',
-        'A gift for a loved one'
-      ],
-      'correctAnswerIndex': 0,
-      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
-    },
-    {
-      'question':
-          'According to some legends, Vishu is associated with Lord Vishnu\'s avatar, Matsya. What form did Matsya take?',
-      'options': [
-        'A powerful warrior',
-        'A wise scholar',
-        'A giant fish',
-        'A majestic lion'
+        'Lighting lamps and fireworks.',
+        'Exchanging gifts and decorating homes.',
+        'Throwing colored powder and water on each other.',
+        'Participating in boat races and feasting.'
       ],
       'correctAnswerIndex': 2,
-      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
+      'image':
+          'https://example.com/holi_image.jpg', // Replace with your image URL
     },
     {
       'question':
-          'During Vishu, kaineettam is a tradition where elders gift something, often money, to younger family members.  What is the significance of this custom?',
+          'Holi celebrates the arrival of spring and the triumph of good over evil. What legendary story is often associated with Holi?',
       'options': [
-        'To ward off evil spirits',
-        'To symbolize good luck and prosperity in the new year',
-        'To express gratitude',
-        'To encourage children to gamble'
+        'The birth of Lord Krishna.',
+        'The victory of Lord Rama over Ravana.',
+        'The churning of the cosmic ocean.',
+        'The burning of Holika, the evil sister of Prahlad.'
+      ],
+      'correctAnswerIndex': 3,
+      'image':
+          'https://example.com/holi_image.jpg', // Replace with your image URL
+    },
+    {
+      'question':
+          'During Holi, people sing, dance, and throw colorful powder called "gulal" at each other. What is the significance of this playful exchange?',
+      'options': [
+        'To ward off bad luck for the coming year.',
+        'To symbolize new beginnings and the shedding of inhibitions.',
+        'To honor specific Hindu deities.',
+        'To express gratitude for a bountiful harvest.'
       ],
       'correctAnswerIndex': 1,
-      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
+      'image':
+          'https://example.com/holi_image.jpg', // Replace with your image URL
+    },
+    {
+      'question':
+          'Holi is a time for forgiveness, reconciliation, and community bonding.  What food is traditionally associated with Holi?',
+      'options': [
+        'Spicy vindaloo curry',
+        'Sweet and savory samosas',
+        'Gujiya, a sweet filled dumpling.',
+        'Tangy yogurt dip (raita)'
+      ],
+      'correctAnswerIndex': 2,
+      'image':
+          'https://example.com/holi_image.jpg', // Replace with your image URL
     },
   ];
 
@@ -103,7 +112,10 @@ class _QuizScreenState extends State<QuizScreen> {
       print('Correct Answers: $_correctAnswers');
       print('Wrong Answers: $_wrongAnswers');
       // Navigate back to previous page when the game is over
-      Navigator.push(context,MaterialPageRoute(builder: (context)=>DetailsPage()));
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => DetailsPage()),
+      );
     }
   }
 
@@ -122,7 +134,7 @@ class _QuizScreenState extends State<QuizScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Vishu Quiz'),
+          title: Text('Holi Quiz'),
           actions: [
             IconButton(
               icon: Icon(Icons.close),
@@ -147,12 +159,12 @@ class _QuizScreenState extends State<QuizScreen> {
                 height: 200, // Adjust the height as needed
                 fit: BoxFit.cover, // Adjust the BoxFit as needed
               ),
-             
+              SizedBox(height: 20),
               Text(
                 _questions[_currentIndex]['question'],
                 style: TextStyle(fontSize: 20.0),
               ),
-     
+              SizedBox(height: 20),
               Column(
                 children: List.generate(
                   _questions[_currentIndex]['options'].length,
@@ -177,7 +189,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   ),
                 ),
               ),
-          
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -191,27 +203,26 @@ class _QuizScreenState extends State<QuizScreen> {
                   ),
                 ],
               ),
-            
+              SizedBox(height: 20),
               if (_lives == 0)
                 Text(
                   'Game Over!',
                   style: TextStyle(
                       fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
-          
               // Add a button to go to the next question
-              Container(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.indigo, // Changed button color to indigo
-                  ),
-                  onPressed: () {
-                    _showNextQuestion();
-                  },
-                  child: Text('Next Question',style: TextStyle(color: Colors.white),),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.indigo, // Changed button color to indigo
+                ),
+                onPressed: () {
+                  _showNextQuestion();
+                },
+                child: Text(
+                  'Next Question',
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
-           
             ],
           ),
         ),
