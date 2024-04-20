@@ -106,6 +106,7 @@ class _SignInState extends State<SignIn> {
                     TextField(
                       style: const TextStyle(color: Colors.white),
                       controller: PasswordController,
+                      obscureText: true,
                       decoration: InputDecoration(
                           hintText: "Password",
                           hintStyle: const TextStyle(color: Colors.white),
