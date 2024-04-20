@@ -1,5 +1,6 @@
 import 'package:culture_app/Navigator.dart';
 import 'package:culture_app/pages/home_page.dart';
+import 'package:culture_app/pages/signin.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,14 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Navigation1(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const SignIn());
   }
 }
-
