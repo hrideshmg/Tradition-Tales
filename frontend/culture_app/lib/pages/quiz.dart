@@ -1,88 +1,221 @@
+import 'package:culture_app/pages/details_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-class QuestPage extends StatelessWidget {
+void main() {
+  runApp(QuizApp());
+}
+
+class QuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Quest: The Return of Mahabali'),
+    return MaterialApp(
+      title: 'Vishu Quiz',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            QuestQuestion(
-              question:
-                  'As Mahabali, you seek counsel about your absence from Kerala. Who do you consult?',
-              options: [
-                'Villagers in the marketplace',
-                'Sages in the temple',
-                'Royal advisors in the palace',
-                'None of the above'
-              ],
-            ),
-            SizedBox(height: 20),
-            QuestQuestion(
-              question:
-                  'During your journey back to Kerala, you encounter obstacles. What challenges do you face?',
-              options: [
-                'Treacherous caverns',
-                'Formidable foes',
-                'Perplexing puzzles',
-                'Only Treacherous caverns and Formidable foes'
-              ],
-            ),
-            SizedBox(height: 20),
-            // Add more QuestQuestions here as needed
-          ],
-        ),
-      ),
+      home: QuizScreen(),
     );
   }
 }
 
-class QuestQuestion extends StatefulWidget {
-  final String question;
-  final List<String> options;
-
-  const QuestQuestion({required this.question, required this.options});
-
+class QuizScreen extends StatefulWidget {
   @override
-  _QuestQuestionState createState() => _QuestQuestionState();
+  _QuizScreenState createState() => _QuizScreenState();
 }
 
-class _QuestQuestionState extends State<QuestQuestion> {
-  late String selectedOption;
+class _QuizScreenState extends State<QuizScreen> {
+  int _currentIndex = 0;
+  int _correctAnswers = 0;
+  int _wrongAnswers = 0;
+  int _lives = 3;
+
+  List<Map<String, dynamic>> _questions = [
+    {
+      'question':
+          'Vishu is a festival celebrated in Kerala, India, that marks the beginning of their traditional new year. What is the approximate Gregorian calendar month when Vishu usually falls?',
+      'options': ['January', 'April', 'July', 'October'],
+      'correctAnswerIndex': 1,
+      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
+    },
+    {
+      'question':
+          'Vishu kani is an important Vishu tradition involving arranging auspicious items for the first thing someone sees in the new year.  What might you typically find in a vishu kani?',
+      'options': [
+        'A brightly lit lamp',
+        'A plate of sweets and snacks',
+        'A set of new clothes',
+        'A gift for a loved one'
+      ],
+      'correctAnswerIndex': 0,
+      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
+    },
+    {
+      'question':
+          'According to some legends, Vishu is associated with Lord Vishnu\'s avatar, Matsya. What form did Matsya take?',
+      'options': [
+        'A powerful warrior',
+        'A wise scholar',
+        'A giant fish',
+        'A majestic lion'
+      ],
+      'correctAnswerIndex': 2,
+      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
+    },
+    {
+      'question':
+          'During Vishu, kaineettam is a tradition where elders gift something, often money, to younger family members.  What is the significance of this custom?',
+      'options': [
+        'To ward off evil spirits',
+        'To symbolize good luck and prosperity in the new year',
+        'To express gratitude',
+        'To encourage children to gamble'
+      ],
+      'correctAnswerIndex': 1,
+      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
+    },
+  ];
+
+  void _checkAnswer(int selectedIndex) {
+    int correctAnswerIndex = _questions[_currentIndex]['correctAnswerIndex'];
+    bool isCorrect = selectedIndex == correctAnswerIndex;
+    if (isCorrect) {
+      setState(() {
+        _correctAnswers++;
+      });
+    } else {
+      setState(() {
+        _wrongAnswers++;
+        _lives--;
+      });
+    }
+    _showNextQuestion();
+  }
+
+  void _showNextQuestion() {
+    if (_currentIndex < _questions.length - 1) {
+      setState(() {
+        _currentIndex++;
+      });
+    } else {
+      // End of quiz, you can show a result screen or any other action here
+      print('Quiz Ended!');
+      print('Correct Answers: $_correctAnswers');
+      print('Wrong Answers: $_wrongAnswers');
+      // Navigate back to previous page when the game is over
+      Navigator.push(context,MaterialPageRoute(builder: (context)=>DetailsPage()));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          widget.question,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+    return WillPopScope(
+      onWillPop: () async {
+        // Handle back button press
+        if (_lives == 0) {
+          // Navigate back to previous page if lives reach 0
+          Navigator.pop(context);
+          return true; // Allow back navigation
+        } else {
+          return false; // Prevent back navigation
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Vishu Quiz'),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.close),
+              onPressed: () {
+                // Navigate back to previous page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetailsPage()),
+                );
+              },
+            ),
+          ],
         ),
-        SizedBox(height: 10),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: widget.options.map((option) {
-            return ListTile(
-              title: Text(option),
-              leading: Radio(
-                value: option,
-                groupValue: selectedOption,
-                onChanged: (value) {
-                  setState(() {
-                    selectedOption = value!;
-                  });
-                },
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.network(
+                _questions[_currentIndex]['image'],
+                width: 200, // Adjust the width as needed
+                height: 200, // Adjust the height as needed
+                fit: BoxFit.cover, // Adjust the BoxFit as needed
               ),
-            );
-          }).toList(),
+             
+              Text(
+                _questions[_currentIndex]['question'],
+                style: TextStyle(fontSize: 20.0),
+              ),
+     
+              Column(
+                children: List.generate(
+                  _questions[_currentIndex]['options'].length,
+                  (index) => GestureDetector(
+                    onTap: () {
+                      _checkAnswer(index);
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 20.0),
+                      margin: EdgeInsets.only(bottom: 10.0),
+                      decoration: BoxDecoration(
+                        color: Colors.indigo, // Changed color to indigo
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Text(
+                        _questions[_currentIndex]['options'][index],
+                        style: TextStyle(color: Colors.white, fontSize: 16.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+          
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Lives: $_lives',
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                  Text(
+                    'Timer: --:--', // Placeholder for timer
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                ],
+              ),
+            
+              if (_lives == 0)
+                Text(
+                  'Game Over!',
+                  style: TextStyle(
+                      fontSize: 24.0, fontWeight: FontWeight.bold),
+                ),
+          
+              // Add a button to go to the next question
+              Container(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.indigo, // Changed button color to indigo
+                  ),
+                  onPressed: () {
+                    _showNextQuestion();
+                  },
+                  child: Text('Next Question',style: TextStyle(color: Colors.white),),
+                ),
+              ),
+           
+            ],
+          ),
         ),
-      ],
+      ),
     );
   }
 }
