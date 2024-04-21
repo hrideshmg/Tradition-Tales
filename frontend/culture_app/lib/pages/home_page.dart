@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:culture_app/pages/DetailsPage8.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:culture_app/custom/custom_icons.dart';
@@ -23,7 +24,7 @@ class element {
   final String title;
 }
 
-List<element> elements = [
+List<element> Festivals = [
   element("assets/images/pic7.jpeg", DetailsPage(), "Vishu"),
   element("assets/images/pic13.jpeg", DetailsPage2(), "Theyyam"),
   element("assets/images/onam.jpg", DetailsPage3(), "Onam"),
@@ -47,9 +48,11 @@ List<String> trivias2 = [
   "India has a rich history of textiles and clothing. Dhoti, Sari, and Kurta are just a few examples of traditional garments that are still worn today.",
   "Snakes and ladders isn't the only game with Indian origins. Pachisi, a board game involving racing pawns across a cross-shaped board, is believed to be an ancestor of Ludo and Parcheesi.",
 ];
-List<element> elements1 = [];
+List<element> Rituals = [
+  element("assets/images/ritual1.jpeg", DetailsPage8(), "Pooja")
+];
 
-List<element> elements2 = [
+List<element> Epics = [
   element("assets/images/English.jpeg", DetailsPage5(), "Ramayana"),
   element("assets/images/jesus_cover.jpg", DetailsPage6(), "Bible"),
   element("assets/images/mahabharat_book.jpg", DetailsPage7(), "Mahabharat"),
@@ -220,7 +223,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                   Stack(
                     children: <Widget>[
-                      CardScrollWidget(currentPage),
+                      FestivalScrollWidget(currentPage),
                       Positioned.fill(
                         child: InkWell(
                           onTap: () => {
@@ -228,10 +231,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        elements[_pageIndex].page))
+                                        Festivals[_pageIndex].page))
                           },
                           child: PageView.builder(
-                            itemCount: elements.length,
+                            itemCount: Festivals.length,
                             controller: controller,
                             reverse: true,
                             onPageChanged: (page_index) => {
@@ -250,7 +253,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Color(0xff13CA9E)),
+                        color: Color(0xffE6B45C)),
                     width: MediaQuery.of(context).size.width * 0.89,
                     height: MediaQuery.of(context).size.height * 0.18,
                     child: Stack(
@@ -379,7 +382,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                   Stack(
                     children: <Widget>[
-                      CardScrollWidget1(currentPage),
+                      RitualScrollWidget(currentPage),
                       Positioned.fill(
                         child: InkWell(
                           onTap: () => {
@@ -387,10 +390,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        elements1[_pageIndex].page))
+                                        Rituals[_pageIndex].page))
                           },
                           child: PageView.builder(
-                            itemCount: elements1.length,
+                            itemCount: Rituals.length,
                             controller: controller,
                             reverse: true,
                             onPageChanged: (page_index) => {
@@ -409,7 +412,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Color(0xff13CA9E)),
+                        color: Color(0xffE6B45C)),
                     width: MediaQuery.of(context).size.width * 0.89,
                     height: MediaQuery.of(context).size.height * 0.18,
                     child: Stack(
@@ -542,7 +545,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                   Stack(
                     children: <Widget>[
-                      CardScrollWidget2(currentPage),
+                      EpicScrollWidget(currentPage),
                       Positioned.fill(
                         child: GestureDetector(
                           onTap: () => {
@@ -550,10 +553,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        elements2[_pageIndex].page))
+                                        Epics[_pageIndex].page))
                           },
                           child: PageView.builder(
-                            itemCount: elements2.length,
+                            itemCount: Epics.length,
                             controller: controller,
                             reverse: true,
                             onPageChanged: (page_index) => {
@@ -572,7 +575,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Color(0xff13CA9E)),
+                        color: Color(0xffE6B45C)),
                     width: MediaQuery.of(context).size.width * 0.89,
                     height: MediaQuery.of(context).size.height * 0.18,
                     child: Stack(
@@ -639,12 +642,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 }
 
 // ignore: must_be_immutable
-class CardScrollWidget extends StatelessWidget {
+class FestivalScrollWidget extends StatelessWidget {
   var currentPage;
   var padding = 20.0;
   var verticalInset = 20.0;
 
-  CardScrollWidget(this.currentPage);
+  FestivalScrollWidget(this.currentPage);
 
   @override
   Widget build(BuildContext context) {
@@ -665,7 +668,7 @@ class CardScrollWidget extends StatelessWidget {
 
         List<Widget> cardList = [];
 
-        for (var i = 0; i < elements.length; i++) {
+        for (var i = 0; i < Festivals.length; i++) {
           var delta = i - currentPage;
           bool isOnRight = delta > 0;
 
@@ -683,18 +686,18 @@ class CardScrollWidget extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16.0),
               child: Container(
-                decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                decoration: BoxDecoration(color: Colors.black, boxShadow: [
                   BoxShadow(
-                      color: Colors.black12,
-                      offset: Offset(3.0, 6.0),
-                      blurRadius: 10.0)
+                      color: Colors.black,
+                      offset: Offset(25.0, 25.0),
+                      blurRadius: 0.0)
                 ]),
                 child: AspectRatio(
                   aspectRatio: cardAspectRatio,
                   child: Stack(
                     fit: StackFit.expand,
                     children: <Widget>[
-                      Image.asset(elements[i].image_path, fit: BoxFit.cover),
+                      Image.asset(Festivals[i].image_path, fit: BoxFit.cover),
                       Align(
                         alignment: Alignment.topRight,
                         child: IconButton(
@@ -718,7 +721,7 @@ class CardScrollWidget extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 16.0, vertical: 8.0),
-                              child: Text(elements[i].title,
+                              child: Text(Festivals[i].title,
                                   style: TextStyle(
                                       shadows: <Shadow>[
                                         Shadow(
@@ -818,12 +821,12 @@ class PageIndicator extends StatelessWidget {
   }
 }
 
-class CardScrollWidget2 extends StatelessWidget {
+class EpicScrollWidget extends StatelessWidget {
   var currentPage;
   var padding = 20.0;
   var verticalInset = 20.0;
 
-  CardScrollWidget2(this.currentPage);
+  EpicScrollWidget(this.currentPage);
 
   @override
   Widget build(BuildContext context) {
@@ -844,7 +847,7 @@ class CardScrollWidget2 extends StatelessWidget {
 
         List<Widget> cardList = [];
 
-        for (var i = 0; i < elements2.length; i++) {
+        for (var i = 0; i < Epics.length; i++) {
           var delta = i - currentPage;
           bool isOnRight = delta > 0;
 
@@ -873,7 +876,7 @@ class CardScrollWidget2 extends StatelessWidget {
                   child: Stack(
                     fit: StackFit.expand,
                     children: <Widget>[
-                      Image.asset(elements2[i].image_path, fit: BoxFit.cover),
+                      Image.asset(Epics[i].image_path, fit: BoxFit.cover),
                       Align(
                         alignment: Alignment.topRight,
                         child: IconButton(
@@ -897,7 +900,7 @@ class CardScrollWidget2 extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 16.0, vertical: 8.0),
-                              child: Text(elements2[i].title,
+                              child: Text(Epics[i].title,
                                   style: TextStyle(
                                       shadows: <Shadow>[
                                         Shadow(
@@ -937,12 +940,12 @@ class CardScrollWidget2 extends StatelessWidget {
   }
 }
 
-class CardScrollWidget1 extends StatelessWidget {
+class RitualScrollWidget extends StatelessWidget {
   var currentPage;
   var padding = 20.0;
   var verticalInset = 20.0;
 
-  CardScrollWidget1(this.currentPage);
+  RitualScrollWidget(this.currentPage);
 
   @override
   Widget build(BuildContext context) {
@@ -964,7 +967,7 @@ class CardScrollWidget1 extends StatelessWidget {
 
           List<Widget> cardList = [];
 
-          for (var i = 0; i < elements1.length; i++) {
+          for (var i = 0; i < Rituals.length; i++) {
             var delta = i - currentPage;
             bool isOnRight = delta > 0;
 
@@ -993,7 +996,7 @@ class CardScrollWidget1 extends StatelessWidget {
                     child: Stack(
                       fit: StackFit.expand,
                       children: <Widget>[
-                        Image.asset(elements1[i].image_path, fit: BoxFit.cover),
+                        Image.asset(Rituals[i].image_path, fit: BoxFit.cover),
                         Align(
                           alignment: Alignment.topRight,
                           child: IconButton(
@@ -1017,7 +1020,7 @@ class CardScrollWidget1 extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 16.0, vertical: 8.0),
-                                child: Text(elements2[i].title,
+                                child: Text(Rituals[i].title,
                                     style: TextStyle(
                                         shadows: <Shadow>[
                                           Shadow(

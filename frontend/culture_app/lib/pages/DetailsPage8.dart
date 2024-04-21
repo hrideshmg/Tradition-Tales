@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:culture_app/custom/custom_icons.dart';
 import 'package:flutter/widgets.dart';
 
-class DetailsPage4 extends StatefulWidget {
+class DetailsPage8 extends StatefulWidget {
   @override
-  _DetailsPage4State createState() => _DetailsPage4State();
+  _DetailsPage8State createState() => _DetailsPage8State();
 }
 
-class _DetailsPage4State extends State<DetailsPage4> {
+class _DetailsPage8State extends State<DetailsPage8> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,7 @@ class _DetailsPage4State extends State<DetailsPage4> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Diwali',
+              Text('Pooja',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       letterSpacing: 1.1,
@@ -122,7 +122,7 @@ class _DetailsPage4State extends State<DetailsPage4> {
             padding: EdgeInsets.all(20),
             shrinkWrap: true,
             children: <Widget>[
-              Text('Puja',
+              Text('Pooja',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       letterSpacing: 1.1,
@@ -143,13 +143,13 @@ class _DetailsPage4State extends State<DetailsPage4> {
                         ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Image.asset(
-                              "assets/images/diwali_book1.jpg",
+                              "assets/images/pooja1.jpg",
                               width: 200,
                               height: 200,
                             )),
                         SizedBox(),
                         Image.asset(
-                          "assets/images/diwali_book2.jpg",
+                          "assets/images/pooja2.jpg",
                           width: 200,
                           height: 200,
                         ),
