@@ -15,7 +15,8 @@ class _QuizScreen5State extends State<QuizScreen5> {
 
   List<Map<String, dynamic>> _questions = [
     {
-      'question': 'During Rama\'s exile, a golden deer led him away, allowing Ravana to abduct Sita. What action by Rama led to this?',
+      'question':
+          'During Rama\'s exile, a golden deer led him away, allowing Ravana to abduct Sita. What action by Rama led to this?',
       'options': [
         'He ignored Lakshmana\'s warnings and chased the deer.',
         'He left Sita alone to investigate a sound.',
@@ -27,7 +28,8 @@ class _QuizScreen5State extends State<QuizScreen5> {
           'https://example.com/ramayana_image.jpg', // Replace with your image URL
     },
     {
-      'question': 'Jatayu, the giant vulture, reveals a crucial detail to Rama after witnessing Sita\'s abduction. What information does Jatayu share?',
+      'question':
+          'Jatayu, the giant vulture, reveals a crucial detail to Rama after witnessing Sita\'s abduction. What information does Jatayu share?',
       'options': [
         'The direction Ravana flew towards with Sita.',
         'The identity of the kidnapper but not the location.',
@@ -35,10 +37,10 @@ class _QuizScreen5State extends State<QuizScreen5> {
         'The direction Ravana flew towards with Sita.'
       ],
       'correctAnswerIndex': 3,
-     
     },
     {
-      'question': 'Rama helps Sugriva regain his throne in Kishkindha. How does this alliance benefit Rama\'s search for Sita?',
+      'question':
+          'Rama helps Sugriva regain his throne in Kishkindha. How does this alliance benefit Rama\'s search for Sita?',
       'options': [
         'Sugriva offers Hanuman, his loyal advisor, to help find Sita.',
         'The alliance grants Rama access to a hidden treasure.',
@@ -46,10 +48,10 @@ class _QuizScreen5State extends State<QuizScreen5> {
         'Sugriva offers Hanuman, his loyal advisor, to help find Sita.'
       ],
       'correctAnswerIndex': 3,
-     
     },
     {
-      'question': 'Building the bridge to Lanka presented a significant challenge. What best describes the difficulty faced during construction?',
+      'question':
+          'Building the bridge to Lanka presented a significant challenge. What best describes the difficulty faced during construction?',
       'options': [
         'Demons from Lanka constantly disrupted the effort.',
         'The bridge was built quickly and effortlessly.',
@@ -57,7 +59,6 @@ class _QuizScreen5State extends State<QuizScreen5> {
         'Demons from Lanka constantly disrupted the effort.'
       ],
       'correctAnswerIndex': 0,
-     
     },
   ];
 
@@ -88,10 +89,7 @@ class _QuizScreen5State extends State<QuizScreen5> {
       print('Correct Answers: $_correctAnswers');
       print('Wrong Answers: $_wrongAnswers');
       // Navigate back to previous page when the game is over
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => DetailsPage()),
-      );
+      Navigator.pop(context);
     }
   }
 
@@ -116,7 +114,7 @@ class _QuizScreen5State extends State<QuizScreen5> {
               icon: Icon(Icons.close),
               onPressed: () {
                 // Navigate back to previous page
-                               Navigator.pop(context);
+                Navigator.pop(context);
               },
             ),
           ],
@@ -126,7 +124,6 @@ class _QuizScreen5State extends State<QuizScreen5> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              
               SizedBox(height: 20),
               Text(
                 _questions[_currentIndex]['question'],
@@ -171,13 +168,13 @@ class _QuizScreen5State extends State<QuizScreen5> {
               if (_lives == 0)
                 Text(
                   'Game Over!',
-                  style: TextStyle(
-                      fontSize: 24.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
               // Add a button to go to the next question
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.indigo, // Changed button color to indigo
+                  backgroundColor:
+                      Colors.indigo, // Changed button color to indigo
                 ),
                 onPressed: () {
                   _showNextQuestion();

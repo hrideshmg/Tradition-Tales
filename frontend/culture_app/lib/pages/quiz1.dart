@@ -2,23 +2,6 @@ import 'package:culture_app/pages/details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-void main() {
-  runApp(QuizApp1());
-}
-
-class QuizApp1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Theyyam Quiz',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: QuizScreen(),
-    );
-  }
-}
-
 class QuizScreen extends StatefulWidget {
   @override
   _QuizScreenState createState() => _QuizScreenState();
@@ -34,14 +17,8 @@ class _QuizScreenState extends State<QuizScreen> {
     {
       'question':
           'Theyyam is a vibrant ritual art form primarily found in which region of India?',
-      'options': [
-        'Tamil Nadu',
-        'Karnataka',
-        'North Kerala',
-        'Andhra Pradesh'
-      ],
+      'options': ['Tamil Nadu', 'Karnataka', 'North Kerala', 'Andhra Pradesh'],
       'correctAnswerIndex': 2,
-    
     },
     {
       'question':
@@ -53,7 +30,6 @@ class _QuizScreenState extends State<QuizScreen> {
         'To reenact historical events and battles.'
       ],
       'correctAnswerIndex': 2,
-
     },
     {
       'question':
@@ -65,7 +41,6 @@ class _QuizScreenState extends State<QuizScreen> {
         'In bustling marketplaces for public entertainment.'
       ],
       'correctAnswerIndex': 2,
-    
     },
     {
       'question':
@@ -77,7 +52,6 @@ class _QuizScreenState extends State<QuizScreen> {
         'Carved wooden blocks'
       ],
       'correctAnswerIndex': 2,
-    
     },
   ];
 
@@ -108,10 +82,7 @@ class _QuizScreenState extends State<QuizScreen> {
       print('Correct Answers: $_correctAnswers');
       print('Wrong Answers: $_wrongAnswers');
       // Navigate back to previous page when the game is over
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => DetailsPage()),
-      );
+      Navigator.pop(context);
     }
   }
 
@@ -190,13 +161,13 @@ class _QuizScreenState extends State<QuizScreen> {
               if (_lives == 0)
                 Text(
                   'Game Over!',
-                  style: TextStyle(
-                      fontSize: 24.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
               // Add a button to go to the next question
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.indigo, // Changed button color to indigo
+                  backgroundColor:
+                      Colors.indigo, // Changed button color to indigo
                 ),
                 onPressed: () {
                   _showNextQuestion();

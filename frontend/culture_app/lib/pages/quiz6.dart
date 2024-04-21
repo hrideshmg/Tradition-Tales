@@ -15,7 +15,8 @@ class _QuizScreen6State extends State<QuizScreen6> {
 
   List<Map<String, dynamic>> _questions = [
     {
-      'question': 'Adam and Eve disobeyed God\'s command and faced what consequence?',
+      'question':
+          'Adam and Eve disobeyed God\'s command and faced what consequence?',
       'options': [
         'They were granted eternal life.',
         'They were banished from the Garden of Eden.',
@@ -23,10 +24,10 @@ class _QuizScreen6State extends State<QuizScreen6> {
         'They became immortal but filled with sorrow.'
       ],
       'correctAnswerIndex': 1,
-      
     },
     {
-      'question': 'Why did God intervene and stop the construction of the Tower of Babel?',
+      'question':
+          'Why did God intervene and stop the construction of the Tower of Babel?',
       'options': [
         'The tower was structurally unsound and posed a safety hazard.',
         'God feared humanity would become too powerful.',
@@ -34,10 +35,10 @@ class _QuizScreen6State extends State<QuizScreen6> {
         'The builders were using forbidden materials.'
       ],
       'correctAnswerIndex': 1,
-      
     },
     {
-      'question': 'Abraham was tested by God with a difficult command. What was he asked to sacrifice on an altar?',
+      'question':
+          'Abraham was tested by God with a difficult command. What was he asked to sacrifice on an altar?',
       'options': [
         'His most prized possession, a golden calf.',
         'His eldest son, Isaac.',
@@ -45,10 +46,10 @@ class _QuizScreen6State extends State<QuizScreen6> {
         'All his wealth to help the poor and needy.'
       ],
       'correctAnswerIndex': 1,
-      
     },
     {
-      'question': 'A parable tells the story of a young man who squanders his inheritance. How does the father respond?',
+      'question':
+          'A parable tells the story of a young man who squanders his inheritance. How does the father respond?',
       'options': [
         'He angrily rejects his son, demanding repayment.',
         'He welcomes his son back with open arms and a joyous feast.',
@@ -56,7 +57,6 @@ class _QuizScreen6State extends State<QuizScreen6> {
         'He casts his son out onto the streets to learn a valuable lesson.'
       ],
       'correctAnswerIndex': 1,
-      
     },
   ];
 
@@ -87,10 +87,7 @@ class _QuizScreen6State extends State<QuizScreen6> {
       print('Correct Answers: $_correctAnswers');
       print('Wrong Answers: $_wrongAnswers');
       // Navigate back to previous page when the game is over
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => DetailsPage()),
-      );
+      Navigator.pop(context);
     }
   }
 
@@ -115,7 +112,7 @@ class _QuizScreen6State extends State<QuizScreen6> {
               icon: Icon(Icons.close),
               onPressed: () {
                 // Navigate back to previous page
-                               Navigator.pop(context);
+                Navigator.pop(context);
               },
             ),
           ],
@@ -125,7 +122,6 @@ class _QuizScreen6State extends State<QuizScreen6> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-             
               SizedBox(height: 20),
               Text(
                 _questions[_currentIndex]['question'],
@@ -170,13 +166,13 @@ class _QuizScreen6State extends State<QuizScreen6> {
               if (_lives == 0)
                 Text(
                   'Game Over!',
-                  style: TextStyle(
-                      fontSize: 24.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
               // Add a button to go to the next question
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.indigo, // Changed button color to indigo
+                  backgroundColor:
+                      Colors.indigo, // Changed button color to indigo
                 ),
                 onPressed: () {
                   _showNextQuestion();
