@@ -124,6 +124,7 @@ class _SignInState extends State<SignIn> {
                     const SizedBox(
                       height: 22,
                     ),
+                    ElevatedButton(onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (_) => const HomePage()));}, child: Text("Homepage")),
                     Row(
                       children: [
                         Text("Don't have an account?",

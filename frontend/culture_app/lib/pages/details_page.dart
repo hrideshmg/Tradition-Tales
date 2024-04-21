@@ -35,7 +35,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       color: Colors.white,
                       fontSize: 50,
                       fontFamily: "Sans-Regular")),
-              SizedBox(height: 10),
+              // SizedBox(height: 10),
               Row(
                 children: <Widget>[
                   Icon(
@@ -53,43 +53,45 @@ class _DetailsPageState extends State<DetailsPage> {
                   SizedBox(width: 5),
                 ],
               ),
-              SizedBox(height: 20),
-              SizedBox(height: 20),
+              // SizedBox(height: 20),
+              // SizedBox(height: 20),
               Row(
-                children: <Widget>[
-                  SizedBox(width: 5),
-                  Flexible(
+                      children: <Widget>[
+                        SizedBox(width: 5),
+                        Flexible(
+                            child: Text(
+                          "Vishu, the festival that heralds the Malayalam New Year, is a tapestry of vibrant traditions and heartfelt customs celebrated primarily in the picturesque state of Kerala, India, and by the Malayali diaspora worldwide. As the sun rises on Vishu morning, homes are adorned with the auspicious Vishukkani, a breathtaking arrangement of symbolic items carefully curated to signify prosperity and abundance for the year ahead. The Vishukkani, with its ensemble of golden ornaments, freshly harvested grains, fragrant flowers, and a mirror reflecting the essence of renewal, serves as a profound reminder of hope and blessings.",
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        )),
+                      ],
+                    ),
+                    SizedBox(
+                      // height: 50
+                      height: 20,
+                    ),
+                    Center(
+                        child: ElevatedButton(
+                      onPressed: () {
+                        _showBottomSheet();
+                      },
                       child: Text(
-                    "Vishu, the festival that heralds the Malayalam New Year, is a tapestry of vibrant traditions and heartfelt customs celebrated primarily in the picturesque state of Kerala, India, and by the Malayali diaspora worldwide. As the sun rises on Vishu morning, homes are adorned with the auspicious Vishukkani, a breathtaking arrangement of symbolic items carefully curated to signify prosperity and abundance for the year ahead. The Vishukkani, with its ensemble of golden ornaments, freshly harvested grains, fragrant flowers, and a mirror reflecting the essence of renewal, serves as a profound reminder of hope and blessings.",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  )),
-                ],
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Center(
-                  child: ElevatedButton(
-                onPressed: () {
-                  _showBottomSheet();
-                },
-                child: Text(
-                  "More Information",
-                  style: TextStyle(color: Colors.white),
+                        "More Information",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                          textStyle: TextStyle(
+                              fontSize: 25,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                    )),
+                  ],
                 ),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                    textStyle: TextStyle(
-                        fontSize: 25,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold)),
-              )),
+              ),
             ],
           ),
-        ),
-      ]),
-    );
+        );
   }
 
   Widget _buildImage(String imagePath) {

@@ -260,7 +260,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     Text(
                                       "Trivia",
                                       style: GoogleFonts.inter(
-                                        textStyle: TextStyle(
+                                        textStyle:const TextStyle(
                                             fontSize: 24,
                                             fontWeight: FontWeight.bold),
                                       ),
