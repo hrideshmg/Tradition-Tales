@@ -77,7 +77,7 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   void _showNextQuestion() {
-    if (_currentIndex < _questions.length - 1) {
+    if (_currentIndex < _questions.length - 2) {
       setState(() {
         _currentIndex++;
       });
@@ -135,10 +135,6 @@ class _QuizScreenState extends State<QuizScreen> {
                     'Lives: $_lives',
                     style: TextStyle(fontSize: 16.0),
                   ),
-                  Text(
-                    'Timer: --:--', // Placeholder for timer
-                    style: TextStyle(fontSize: 16.0),
-                  ),
                 ],
               ),
 
@@ -150,15 +146,11 @@ class _QuizScreenState extends State<QuizScreen> {
               const SizedBox(
                 height: 15,
               ),
-              Image.network(
-                _questions[_currentIndex]['image'],
-                width: double.infinity, // Adjust the width as needed
-                height: 300, // Adjust the height as needed
-                fit: BoxFit.cover, // Adjust the BoxFit as needed
-              ),
               const SizedBox(
                 height: 20,
               ),
+              Text(_questions[_currentIndex]['question'],
+                  style: TextStyle(fontSize: 20)),
 
               Column(
                 children: List.generate(
