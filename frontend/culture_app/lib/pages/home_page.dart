@@ -124,13 +124,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               title: Padding(
                 padding: EdgeInsets.all(8),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset("assets/image/image1.png",width: 250,height: 150,)
-                      
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/image1.png",
+                          width: 250,
+                          height: 150,
+                        )),
                   ],
                 ),
               )),
