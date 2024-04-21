@@ -186,9 +186,8 @@ class _DetailsPage3State extends State<DetailsPage3> {
                   ),
                 ),
                 onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                    QuizScreen3()
-                  ));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => QuizScreen3()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(

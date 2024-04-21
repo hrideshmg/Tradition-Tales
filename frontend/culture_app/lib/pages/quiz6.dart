@@ -112,7 +112,6 @@ class _QuizScreen6State extends State<QuizScreen6> {
               icon: Icon(Icons.close),
               onPressed: () {
                 // Navigate back to previous page
-                Navigator.pop(context);
               },
             ),
           ],

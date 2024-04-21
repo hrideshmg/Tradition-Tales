@@ -19,7 +19,6 @@ class _QuizScreen3State extends State<QuizScreen3> {
           'Onam is a harvest festival celebrated in which Indian state?',
       'options': ['Tamil Nadu', 'Karnataka', 'Kerala ', 'Andhra Pradesh'],
       'correctAnswerIndex': 2,
-      
     },
     {
       'question':
@@ -31,7 +30,6 @@ class _QuizScreen3State extends State<QuizScreen3> {
         'Preparing a grand feast'
       ],
       'correctAnswerIndex': 1,
-      
     },
     {
       'question':
@@ -43,7 +41,6 @@ class _QuizScreen3State extends State<QuizScreen3> {
         'A time for grand displays of wealth'
       ],
       'correctAnswerIndex': 1,
-      
     },
     {
       'question':
@@ -55,7 +52,6 @@ class _QuizScreen3State extends State<QuizScreen3> {
         'A competition for the most unique dish'
       ],
       'correctAnswerIndex': 1,
-     
     },
   ];
 
@@ -121,7 +117,6 @@ class _QuizScreen3State extends State<QuizScreen3> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-            
               SizedBox(height: 20),
               Text(
                 _questions[_currentIndex]['question'],
@@ -189,3 +184,5 @@ class _QuizScreen3State extends State<QuizScreen3> {
     );
   }
 }
+
+

@@ -123,7 +123,7 @@ class _DetailsPage4State extends State<DetailsPage4> {
             padding: EdgeInsets.all(20),
             shrinkWrap: true,
             children: <Widget>[
-              Text('Vishu',
+              Text('Diwali',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       letterSpacing: 1.1,
@@ -180,9 +180,8 @@ class _DetailsPage4State extends State<DetailsPage4> {
                   ),
                 ),
                 onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                    QuizScreen4()
-                  ));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => QuizScreen4()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(

@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-
 class QuizScreen extends StatefulWidget {
   @override
   _QuizScreenState createState() => _QuizScreenState();
@@ -14,7 +13,7 @@ class _QuizScreenState extends State<QuizScreen> {
   int _correctAnswers = 0;
   int _wrongAnswers = 0;
   int _lives = 3;
-
+  int progression = 1;
   List<Map<String, dynamic>> _questions = [
     {
       'question':
@@ -63,6 +62,10 @@ class _QuizScreenState extends State<QuizScreen> {
     if (isCorrect) {
       setState(() {
         _correctAnswers++;
+        progression = progression + 30;
+        if (progression >= 100) {
+          progression = 100;
+        }
       });
     } else {
       setState(() {
@@ -104,10 +107,15 @@ class _QuizScreenState extends State<QuizScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Vishu Quiz'),
+          // title: Text('Vishu Quiz'),
+          title: LinearProgressIndicator(
+              value: progression.toDouble() / 100,
+              minHeight: 11,
+              borderRadius: BorderRadius.circular(7),
+              color: Colors.green),
           actions: [
             IconButton(
-              icon: Icon(Icons.close),
+              icon: const Icon(Icons.close),
               onPressed: () {
                 // Navigate back to previous page
                 Navigator.pop(context);
@@ -116,22 +124,45 @@ class _QuizScreenState extends State<QuizScreen> {
           ],
         ),
         body: Padding(
-          padding: const EdgeInsets.only(left: 15.0,right: 20.0,bottom: 20.0),
+          padding: const EdgeInsets.only(left: 15.0, right: 20.0, bottom: 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Lives: $_lives',
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                  Text(
+                    'Timer: --:--', // Placeholder for timer
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                ],
+              ),
 
+              if (_lives == 0)
+                Text(
+                  'Game Over!',
+                  style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                ),
+              const SizedBox(
+                height: 15,
+              ),
               Image.network(
                 _questions[_currentIndex]['image'],
                 width: double.infinity, // Adjust the width as needed
                 height: 300, // Adjust the height as needed
                 fit: BoxFit.cover, // Adjust the BoxFit as needed
               ),
-             const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
 
               Column(
                 children: List.generate(
-                  (_questions[_currentIndex]['options'].length/2.0).toInt(),
+                  (_questions[_currentIndex]['options'].length / 2.0).toInt(),
                   (index) => GestureDetector(
                     onTap: () {
                       _checkAnswer(index);
@@ -143,35 +174,52 @@ class _QuizScreenState extends State<QuizScreen> {
                           children: [
                             Container(
                               // width: MediaQuery.of(context).size.width/2,
-                              width: MediaQuery.of(context).size.width/2.5,
-                              height: MediaQuery.of(context).size.height/10,
-                              padding:const EdgeInsets.symmetric(
+                              width: MediaQuery.of(context).size.width / 2.3,
+                              height: MediaQuery.of(context).size.height / 10,
+                              padding: const EdgeInsets.symmetric(
                                   vertical: 10.0, horizontal: 20.0),
-                              margin:const EdgeInsets.only(bottom: 10.0),
+                              margin: const EdgeInsets.only(bottom: 10.0),
                               decoration: BoxDecoration(
-                                color: Colors.indigo, // Changed color to indigo
-                                borderRadius: BorderRadius.circular(10.0),
+                                border: Border.all(
+                                    color: Colors.grey.shade400, width: 4.0),
+                                // color: Colors.indigo, // Changed color to indigo
+                                borderRadius: BorderRadius.circular(15.0),
                               ),
-                              child: Text(
-                                _questions[_currentIndex]['options'][index],
-                                style:const TextStyle(color: Colors.white, fontSize: 16.0,fontFamily: "inter"),
+                              child: Center(
+                                child: Text(
+                                  _questions[_currentIndex]['options'][index],
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16.0,
+                                      fontFamily: "inter"),
+                                ),
                               ),
                             ),
-                            const SizedBox(width: 20,),
+                            const SizedBox(
+                              width: 18,
+                            ),
                             Container(
                               // width: MediaQuery.of(context).size.width/2,
-                              width: MediaQuery.of(context).size.width/2.5,
-                              height: MediaQuery.of(context).size.height/10,
-                              padding:const EdgeInsets.symmetric(
+                              width: MediaQuery.of(context).size.width / 2.3,
+                              height: MediaQuery.of(context).size.height / 10,
+                              padding: const EdgeInsets.symmetric(
                                   vertical: 10.0, horizontal: 20.0),
-                              margin:const EdgeInsets.only(bottom: 10.0),
+                              margin: const EdgeInsets.only(bottom: 10.0),
                               decoration: BoxDecoration(
-                                color: Colors.indigo, // Changed color to indigo
-                                borderRadius: BorderRadius.circular(10.0),
+                                // color: Colors.indigo, // Changed color to indigo
+                                border: Border.all(
+                                    color: Colors.grey.shade400, width: 4.0),
+                                borderRadius: BorderRadius.circular(15.0),
                               ),
-                              child: Text(
-                                _questions[_currentIndex+1]['options'][index+1],
-                                style:const TextStyle(color: Colors.white, fontSize: 16.0,fontFamily: "inter"),
+                              child: Center(
+                                child: Text(
+                                  _questions[_currentIndex + 1]['options']
+                                      [index + 1],
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16.0,
+                                      fontFamily: "inter"),
+                                ),
                               ),
                             )
                           ],
@@ -181,7 +229,6 @@ class _QuizScreenState extends State<QuizScreen> {
                   ),
                 ),
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -198,20 +245,28 @@ class _QuizScreenState extends State<QuizScreen> {
                   style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
 
+              const SizedBox(
+                height: 7,
+              ),
               // Add a button to go to the next question
               Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.green,
+                ),
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
-                        Colors.indigo, // Changed button color to indigo
+                        Colors.green, // Changed button color to indigo
+                    minimumSize: const Size.fromHeight(48),
                   ),
                   onPressed: () {
                     _showNextQuestion();
                   },
                   child: Text(
                     'Next Question',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),
               ),

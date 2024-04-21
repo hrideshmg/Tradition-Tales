@@ -1,11 +1,16 @@
 # This is a generated file; do not edit or check into version control.
-flutter_secure_storage=/home/hridesh/.pub-cache/hosted/pub.dev/flutter_secure_storage-9.0.0/
-flutter_secure_storage_linux=/home/hridesh/.pub-cache/hosted/pub.dev/flutter_secure_storage_linux-1.2.0/
-flutter_secure_storage_macos=/home/hridesh/.pub-cache/hosted/pub.dev/flutter_secure_storage_macos-3.0.1/
-flutter_secure_storage_web=/home/hridesh/.pub-cache/hosted/pub.dev/flutter_secure_storage_web-1.1.2/
-flutter_secure_storage_windows=/home/hridesh/.pub-cache/hosted/pub.dev/flutter_secure_storage_windows-3.0.0/
-path_provider=/home/hridesh/.pub-cache/hosted/pub.dev/path_provider-2.1.3/
-path_provider_android=/home/hridesh/.pub-cache/hosted/pub.dev/path_provider_android-2.2.4/
-path_provider_foundation=/home/hridesh/.pub-cache/hosted/pub.dev/path_provider_foundation-2.3.2/
-path_provider_linux=/home/hridesh/.pub-cache/hosted/pub.dev/path_provider_linux-2.2.1/
-path_provider_windows=/home/hridesh/.pub-cache/hosted/pub.dev/path_provider_windows-2.2.1/
+flutter_plugin_android_lifecycle=/home/bruvi/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.19/
+flutter_secure_storage=/home/bruvi/.pub-cache/hosted/pub.dev/flutter_secure_storage-9.0.0/
+flutter_secure_storage_linux=/home/bruvi/.pub-cache/hosted/pub.dev/flutter_secure_storage_linux-1.2.0/
+flutter_secure_storage_macos=/home/bruvi/.pub-cache/hosted/pub.dev/flutter_secure_storage_macos-3.0.1/
+flutter_secure_storage_web=/home/bruvi/.pub-cache/hosted/pub.dev/flutter_secure_storage_web-1.1.2/
+flutter_secure_storage_windows=/home/bruvi/.pub-cache/hosted/pub.dev/flutter_secure_storage_windows-3.0.0/
+google_maps_flutter=/home/bruvi/.pub-cache/hosted/pub.dev/google_maps_flutter-2.6.1/
+google_maps_flutter_android=/home/bruvi/.pub-cache/hosted/pub.dev/google_maps_flutter_android-2.7.0/
+google_maps_flutter_ios=/home/bruvi/.pub-cache/hosted/pub.dev/google_maps_flutter_ios-2.6.0/
+google_maps_flutter_web=/home/bruvi/.pub-cache/hosted/pub.dev/google_maps_flutter_web-0.5.6+2/
+path_provider=/home/bruvi/.pub-cache/hosted/pub.dev/path_provider-2.1.3/
+path_provider_android=/home/bruvi/.pub-cache/hosted/pub.dev/path_provider_android-2.2.4/
+path_provider_foundation=/home/bruvi/.pub-cache/hosted/pub.dev/path_provider_foundation-2.3.2/
+path_provider_linux=/home/bruvi/.pub-cache/hosted/pub.dev/path_provider_linux-2.2.1/
+path_provider_windows=/home/bruvi/.pub-cache/hosted/pub.dev/path_provider_windows-2.2.1/
