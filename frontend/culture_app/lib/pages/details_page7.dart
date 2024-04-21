@@ -13,79 +13,75 @@ class _DetailsPage7State extends State<DetailsPage7> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black54,
-      body: InkWell(
-        onDoubleTap: () {
-          _showBottomSheet();
-        },
-        child: Stack(fit: StackFit.expand, children: [
-          Opacity(
-            opacity: 0.5,
-            child: Image.asset(
-              "assets/images/mahabharat_book_cover.jpg",
-              fit: BoxFit.cover,
-            ),
+      body: Stack(fit: StackFit.expand, children: [
+        Opacity(
+          opacity: 0.5,
+          child: Image.asset(
+            "assets/images/mahabharat_book_cover.jpg",
+            fit: BoxFit.cover,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 80, left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Mahabharat',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        letterSpacing: 1.1,
-                        color: Colors.white,
-                        fontSize: 50,
-                        fontFamily: "Sans-Regular")),
-                SizedBox(height: 10),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.schedule,
-                      color: Colors.white70,
-                      size: 25,
-                    ),
-                    SizedBox(width: 5),
-                    SizedBox(width: 20),
-                    SizedBox(width: 5),
-                  ],
-                ),
-                SizedBox(height: 20),
-                SizedBox(height: 20),
-                Row(
-                  children: <Widget>[
-                    SizedBox(width: 5),
-                    Flexible(
-                        child: Text(
-                      "The Ramayana, a revered Indian epic, chronicles Prince Rama's journey. Rama, the rightful heir, is exiled with his loyal wife Sita and brother Lakshmana. In the forest, the demon king Ravana kidnaps Sita. Rama, aided by the monkey god Hanuman, ventures to Lanka to rescue her. A mighty battle ensues, where Rama triumphs over Ravana, restoring order. More than a story, the Ramayana is a moral guide, emphasizing duty, love, and good prevailing over evil.",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    )),
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Center(
-                    child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "More Information",
-                    style: TextStyle(color: Colors.white),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 80, left: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('Mahabharat',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      letterSpacing: 1.1,
+                      color: Colors.white,
+                      fontSize: 50,
+                      fontFamily: "Sans-Regular")),
+              SizedBox(height: 10),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.schedule,
+                    color: Colors.white70,
+                    size: 25,
                   ),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                      textStyle: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold)),
-                )),
-              ],
-            ),
+                  SizedBox(width: 5),
+                  SizedBox(width: 20),
+                  SizedBox(width: 5),
+                ],
+              ),
+              SizedBox(height: 20),
+              SizedBox(height: 20),
+              Row(
+                children: <Widget>[
+                  SizedBox(width: 5),
+                  Flexible(
+                      child: Text(
+                    "The Ramayana, a revered Indian epic, chronicles Prince Rama's journey. Rama, the rightful heir, is exiled with his loyal wife Sita and brother Lakshmana. In the forest, the demon king Ravana kidnaps Sita. Rama, aided by the monkey god Hanuman, ventures to Lanka to rescue her. A mighty battle ensues, where Rama triumphs over Ravana, restoring order. More than a story, the Ramayana is a moral guide, emphasizing duty, love, and good prevailing over evil.",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  )),
+                ],
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Center(
+                  child: ElevatedButton(
+                onPressed: () {
+                  _showBottomSheet();
+                },
+                child: Text(
+                  "More Information",
+                  style: TextStyle(color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    textStyle: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold)),
+              )),
+            ],
           ),
-        ]),
-      ),
+        ),
+      ]),
     );
   }
 

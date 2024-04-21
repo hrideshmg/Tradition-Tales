@@ -13,84 +13,80 @@ class _DetailsPage3State extends State<DetailsPage3> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black54,
-      body: InkWell(
-        onDoubleTap: () {
-          _showBottomSheet();
-        },
-        child: Stack(fit: StackFit.expand, children: [
-          Opacity(
-            opacity: 0.5,
-            child: Image.asset(
-              "assets/images/onam_boat_race.jpg",
-              fit: BoxFit.cover,
-            ),
+      body: Stack(fit: StackFit.expand, children: [
+        Opacity(
+          opacity: 0.5,
+          child: Image.asset(
+            "assets/images/onam_boat_race.jpg",
+            fit: BoxFit.cover,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 80, left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Onam',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        letterSpacing: 1.1,
-                        color: Colors.white,
-                        fontSize: 50,
-                        fontFamily: "Sans-Regular")),
-                SizedBox(height: 10),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.schedule,
-                      color: Colors.white70,
-                      size: 25,
-                    ),
-                    SizedBox(width: 5),
-                    Text('331 DAYS',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontFamily: "Sans-Regular")),
-                    SizedBox(width: 20),
-                    SizedBox(width: 5),
-                  ],
-                ),
-                SizedBox(height: 20),
-                SizedBox(height: 20),
-                Row(
-                  children: <Widget>[
-                    SizedBox(width: 5),
-                    Flexible(
-                        child: Text(
-                      "Onam is the festival that brings together all communities in Kerela. On this day, religion, caste or creed is not of importance. One of the most popular festivals of India, people celebrate it with great zeal. Similarly, activities of this festival are famous all over India for their grand scale and delicious food. We will take a look at the various festivities and celebrations like Onam Pookalam and more.",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    )),
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Center(
-                    child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "More Information",
-                    style: TextStyle(color: Colors.white),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 80, left: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('Onam',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      letterSpacing: 1.1,
+                      color: Colors.white,
+                      fontSize: 50,
+                      fontFamily: "Sans-Regular")),
+              SizedBox(height: 10),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.schedule,
+                    color: Colors.white70,
+                    size: 25,
                   ),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                      textStyle: TextStyle(
-                          fontSize: 25,
+                  SizedBox(width: 5),
+                  Text('331 DAYS',
+                      style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.bold)),
-                )),
-              ],
-            ),
+                          fontSize: 15,
+                          fontFamily: "Sans-Regular")),
+                  SizedBox(width: 20),
+                  SizedBox(width: 5),
+                ],
+              ),
+              SizedBox(height: 20),
+              SizedBox(height: 20),
+              Row(
+                children: <Widget>[
+                  SizedBox(width: 5),
+                  Flexible(
+                      child: Text(
+                    "Onam is the festival that brings together all communities in Kerela. On this day, religion, caste or creed is not of importance. One of the most popular festivals of India, people celebrate it with great zeal. Similarly, activities of this festival are famous all over India for their grand scale and delicious food. We will take a look at the various festivities and celebrations like Onam Pookalam and more.",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  )),
+                ],
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Center(
+                  child: ElevatedButton(
+                onPressed: () {
+                  _showBottomSheet();
+                },
+                child: Text(
+                  "More Information",
+                  style: TextStyle(color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    textStyle: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold)),
+              )),
+            ],
           ),
-        ]),
-      ),
+        ),
+      ]),
     );
   }
 

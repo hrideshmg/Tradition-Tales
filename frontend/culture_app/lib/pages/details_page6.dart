@@ -13,74 +13,70 @@ class _DetailsPage6State extends State<DetailsPage6> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black54,
-      body: InkWell(
-        onDoubleTap: () {
-          _showBottomSheet();
-        },
-        child: Stack(fit: StackFit.expand, children: [
-          Opacity(
-            opacity: 0.5,
-            child: Image.asset(
-              "assets/images/jesus_cover.jpg",
-              fit: BoxFit.cover,
-            ),
+      body: Stack(fit: StackFit.expand, children: [
+        Opacity(
+          opacity: 0.5,
+          child: Image.asset(
+            "assets/images/jesus_cover.jpg",
+            fit: BoxFit.cover,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 80, left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Bible',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        letterSpacing: 1.1,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 80, left: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('Bible',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      letterSpacing: 1.1,
+                      color: Colors.white,
+                      fontSize: 50,
+                      fontFamily: "Sans-Regular")),
+              SizedBox(height: 10),
+              Row(
+                children: <Widget>[
+                  SizedBox(width: 5),
+                  SizedBox(width: 20),
+                  SizedBox(width: 5),
+                ],
+              ),
+              SizedBox(height: 20),
+              SizedBox(height: 20),
+              Row(
+                children: <Widget>[
+                  SizedBox(width: 5),
+                  Flexible(
+                      child: Text(
+                    "The Bible, a core text in Christianity and Judaism, unfolds over thousands of years. It starts with God creating the universe and humanity. Humans disobey, leading to hardship, but God promises redemption. Through figures like Abraham and Moses, God establishes a covenant with his chosen people, the Israelites. The story culminates with Jesus, the Messiah, who is both divine and human. Jesus' teachings of love and forgiveness offer salvation, while his death and resurrection conquer sin and death. The Bible serves as a foundation for faith, teaching about God, humanity's purpose, and the path to eternal life.",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  )),
+                ],
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Center(
+                  child: ElevatedButton(
+                onPressed: () {
+                  _showBottomSheet();
+                },
+                child: Text(
+                  "More Information",
+                  style: TextStyle(color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    textStyle: TextStyle(
+                        fontSize: 25,
                         color: Colors.white,
-                        fontSize: 50,
-                        fontFamily: "Sans-Regular")),
-                SizedBox(height: 10),
-                Row(
-                  children: <Widget>[
-                    SizedBox(width: 5),
-                    SizedBox(width: 20),
-                    SizedBox(width: 5),
-                  ],
-                ),
-                SizedBox(height: 20),
-                SizedBox(height: 20),
-                Row(
-                  children: <Widget>[
-                    SizedBox(width: 5),
-                    Flexible(
-                        child: Text(
-                      "The Bible, a core text in Christianity and Judaism, unfolds over thousands of years. It starts with God creating the universe and humanity. Humans disobey, leading to hardship, but God promises redemption. Through figures like Abraham and Moses, God establishes a covenant with his chosen people, the Israelites. The story culminates with Jesus, the Messiah, who is both divine and human. Jesus' teachings of love and forgiveness offer salvation, while his death and resurrection conquer sin and death. The Bible serves as a foundation for faith, teaching about God, humanity's purpose, and the path to eternal life.",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    )),
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Center(
-                    child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "More Information",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                      textStyle: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold)),
-                )),
-              ],
-            ),
+                        fontWeight: FontWeight.bold)),
+              )),
+            ],
           ),
-        ]),
-      ),
+        ),
+      ]),
     );
   }
 

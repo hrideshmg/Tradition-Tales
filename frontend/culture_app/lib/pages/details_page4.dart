@@ -13,84 +13,80 @@ class _DetailsPage4State extends State<DetailsPage4> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black54,
-      body: InkWell(
-        onDoubleTap: () {
-          _showBottomSheet();
-        },
-        child: Stack(fit: StackFit.expand, children: [
-          Opacity(
-            opacity: 0.5,
-            child: Image.asset(
-              "assets/images/diwali_inside_img.jpg",
-              fit: BoxFit.cover,
-            ),
+      body: Stack(fit: StackFit.expand, children: [
+        Opacity(
+          opacity: 0.5,
+          child: Image.asset(
+            "assets/images/diwali_inside_img.jpg",
+            fit: BoxFit.cover,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 80, left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Diwali',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        letterSpacing: 1.1,
-                        color: Colors.white,
-                        fontSize: 50,
-                        fontFamily: "Sans-Regular")),
-                SizedBox(height: 10),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.schedule,
-                      color: Colors.white70,
-                      size: 25,
-                    ),
-                    SizedBox(width: 5),
-                    Text('142 DAYS',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontFamily: "Sans-Regular")),
-                    SizedBox(width: 20),
-                    SizedBox(width: 5),
-                  ],
-                ),
-                SizedBox(height: 20),
-                SizedBox(height: 20),
-                Row(
-                  children: <Widget>[
-                    SizedBox(width: 5),
-                    Flexible(
-                        child: Text(
-                      "Diwali, also known as ‘Deepavali’ (a row of lamps), is one of the most fervently celebrated festivals of India. Diwali is often called the ‘Festival of Lights’, and is celebrated by lighting lamps, and bursting crackers and fireworks. It is a festival which commemorates the victorious return of Lord Rama to Ayodhya after saving his wife Sita from the demon king Ravana. This religious festival represents the triumph of good over evil and light over darkness.",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    )),
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Center(
-                    child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "More Information",
-                    style: TextStyle(color: Colors.white),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 80, left: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('Diwali',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      letterSpacing: 1.1,
+                      color: Colors.white,
+                      fontSize: 50,
+                      fontFamily: "Sans-Regular")),
+              SizedBox(height: 10),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.schedule,
+                    color: Colors.white70,
+                    size: 25,
                   ),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                      textStyle: TextStyle(
-                          fontSize: 25,
+                  SizedBox(width: 5),
+                  Text('142 DAYS',
+                      style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.bold)),
-                )),
-              ],
-            ),
+                          fontSize: 15,
+                          fontFamily: "Sans-Regular")),
+                  SizedBox(width: 20),
+                  SizedBox(width: 5),
+                ],
+              ),
+              SizedBox(height: 20),
+              SizedBox(height: 20),
+              Row(
+                children: <Widget>[
+                  SizedBox(width: 5),
+                  Flexible(
+                      child: Text(
+                    "Diwali, also known as ‘Deepavali’ (a row of lamps), is one of the most fervently celebrated festivals of India. Diwali is often called the ‘Festival of Lights’, and is celebrated by lighting lamps, and bursting crackers and fireworks. It is a festival which commemorates the victorious return of Lord Rama to Ayodhya after saving his wife Sita from the demon king Ravana. This religious festival represents the triumph of good over evil and light over darkness.",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  )),
+                ],
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Center(
+                  child: ElevatedButton(
+                onPressed: () {
+                  _showBottomSheet();
+                },
+                child: Text(
+                  "More Information",
+                  style: TextStyle(color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    textStyle: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold)),
+              )),
+            ],
           ),
-        ]),
-      ),
+        ),
+      ]),
     );
   }
 
@@ -157,7 +153,7 @@ class _DetailsPage4State extends State<DetailsPage4> {
                           width: 200,
                           height: 200,
                         ),
-                      ],  
+                      ],
                     ),
                   )),
               Row(

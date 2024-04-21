@@ -36,6 +36,17 @@ List<String> trivias = [
   "The Rigveda, one of the oldest surviving texts, contains some of the earliest ideas about the cosmos. Believe it or not, it mentions our solar system!"
 ];
 
+List<String> trivias1 = [
+  "Ancient India boasted some of the world's first universities!  Taxila, founded around 600 BC, was a major center for learning, attracting students from far and wide.",
+  "The Rigveda, one of the oldest surviving texts, contains some of the earliest ideas about the cosmos. Believe it or not, it mentions our solar system!",
+  "Kalaripayattu, one of the oldest martial arts still practiced today, has its roots in Kerala, India. It's known for its flowing movements and weapons use.",
+];
+
+List<String> trivias2 = [
+  "The Chola Dynasty built some of the most magnificent temples in India, including the Brihadeshwara Temple in Thanjavur.",
+  "India has a rich history of textiles and clothing. Dhoti, Sari, and Kurta are just a few examples of traditional garments that are still worn today.",
+  "Snakes and ladders isn't the only game with Indian origins. Pachisi, a board game involving racing pawns across a cross-shaped board, is believed to be an ancestor of Ludo and Parcheesi.",
+];
 List<element> elements1 = [];
 
 List<element> elements2 = [
@@ -62,7 +73,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   var rate;
   int _index = 0;
   int _pageIndex = 0;
-  late PageController _pageViewController;
+  late PageController _triviaPageController;
+  late PageController _mainPageController;
   late TabController _tabController;
   int _currentPageIndex = 0;
   void _incrementTab(index) {
@@ -74,14 +86,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _pageViewController = PageController();
+    _triviaPageController = PageController();
     _tabController = TabController(length: trivias.length, vsync: this);
   }
 
   @override
   void dispose() {
     super.dispose();
-    _pageViewController.dispose();
+    _triviaPageController.dispose();
     _tabController.dispose();
   }
 
@@ -242,7 +254,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       children: <Widget>[
                         Positioned.fill(
                           child: PageView(
-                            controller: _pageViewController,
+                            controller: _triviaPageController,
                             onPageChanged: _handlePageViewChanged,
                             children: [
                               for (String trivia in trivias)
@@ -379,6 +391,51 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ),
                     ],
                   ),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color(0xff13CA9E)),
+                    width: MediaQuery.of(context).size.width * 0.89,
+                    height: MediaQuery.of(context).size.height * 0.18,
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned.fill(
+                          child: PageView(
+                            controller: _triviaPageController,
+                            onPageChanged: _handlePageViewChanged,
+                            children: [
+                              for (String trivia in trivias1)
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(children: [
+                                    Text(
+                                      "Trivia",
+                                      style: GoogleFonts.inter(
+                                        textStyle: TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    Text(
+                                      textAlign: TextAlign.center,
+                                      trivia,
+                                      style: GoogleFonts.inter(
+                                          textStyle: TextStyle(
+                                              fontSize: 18, height: 1.1)),
+                                    )
+                                  ]),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  PageIndicator(
+                    tabController: _tabController,
+                    currentPageIndex: _currentPageIndex,
+                    onUpdateCurrentPageIndex: _updateCurrentPageIndex,
+                  ),
                 ],
               ),
             ),
@@ -486,6 +543,51 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       )
                     ],
                   ),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color(0xff13CA9E)),
+                    width: MediaQuery.of(context).size.width * 0.89,
+                    height: MediaQuery.of(context).size.height * 0.18,
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned.fill(
+                          child: PageView(
+                            controller: _triviaPageController,
+                            onPageChanged: _handlePageViewChanged,
+                            children: [
+                              for (String trivia in trivias2)
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(children: [
+                                    Text(
+                                      "Trivia",
+                                      style: GoogleFonts.inter(
+                                        textStyle: TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    Text(
+                                      textAlign: TextAlign.center,
+                                      trivia,
+                                      style: GoogleFonts.inter(
+                                          textStyle: TextStyle(
+                                              fontSize: 18, height: 1.1)),
+                                    )
+                                  ]),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  PageIndicator(
+                    tabController: _tabController,
+                    currentPageIndex: _currentPageIndex,
+                    onUpdateCurrentPageIndex: _updateCurrentPageIndex,
+                  ),
                 ],
               ),
             ))
@@ -502,7 +604,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   void _updateCurrentPageIndex(int index) {
     _tabController.index = index;
-    _pageViewController.animateToPage(
+    _triviaPageController.animateToPage(
       index,
       duration: const Duration(milliseconds: 400),
       curve: Curves.easeInOut,
@@ -769,8 +871,20 @@ class CardScrollWidget2 extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 16.0, vertical: 8.0),
-                              child: Text(elements[i].title,
+                              child: Text(elements2[i].title,
                                   style: TextStyle(
+                                      shadows: <Shadow>[
+                                        Shadow(
+                                          offset: Offset(1.0, 1.0),
+                                          blurRadius: 3.0,
+                                          color: Color.fromARGB(255, 0, 0, 0),
+                                        ),
+                                        Shadow(
+                                          offset: Offset(1.0, 1.0),
+                                          blurRadius: 8.0,
+                                          color: Color.fromARGB(125, 0, 0, 255),
+                                        ),
+                                      ],
                                       color: Colors.white,
                                       fontSize: 20,
                                       fontFamily: "SourceSansPro-Regular")),
@@ -877,8 +991,21 @@ class CardScrollWidget1 extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 16.0, vertical: 8.0),
-                                child: Text(elements[i].title,
+                                child: Text(elements2[i].title,
                                     style: TextStyle(
+                                        shadows: <Shadow>[
+                                          Shadow(
+                                            offset: Offset(1.0, 1.0),
+                                            blurRadius: 3.0,
+                                            color: Color.fromARGB(255, 0, 0, 0),
+                                          ),
+                                          Shadow(
+                                            offset: Offset(1.0, 1.0),
+                                            blurRadius: 8.0,
+                                            color:
+                                                Color.fromARGB(125, 0, 0, 255),
+                                          ),
+                                        ],
                                         color: Colors.white,
                                         fontSize: 20,
                                         fontFamily: "SourceSansPro-Regular")),
