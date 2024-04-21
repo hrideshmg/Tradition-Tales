@@ -62,7 +62,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-var cardAspectRatio = 12.0 / 16.0;
+var cardAspectRatio = 13.0 / 16.0;
 var widgetAspectRatio = cardAspectRatio * 1.2;
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
@@ -775,7 +775,7 @@ class PageIndicator extends StatelessWidget {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(0.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
