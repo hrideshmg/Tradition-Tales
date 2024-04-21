@@ -49,8 +49,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
-<<<<<<< HEAD
-=======
   csslib:
     dependency: transitive
     description:
@@ -59,7 +57,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
->>>>>>> origin/updatedQuiz
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -175,20 +172,6 @@ packages:
     dependency: "direct main"
     description:
       name: google_fonts
-<<<<<<< HEAD
-      sha256: b1ac0fe2832c9cc95e5e88b57d627c5e68c223b9657f4b96e1487aa9098c7b82
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.2.1"
-  google_nav_bar:
-    dependency: "direct main"
-    description:
-      name: google_nav_bar
-      sha256: "1c8e3882fa66ee7b74c24320668276ca23affbd58f0b14a24c1e5590f4d07ab0"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.0.6"
-=======
       sha256: "6b6f10f0ce3c42f6552d1c70d2c28d764cf22bb487f50f66cca31dcd5194f4d6"
       url: "https://pub.dev"
     source: hosted
@@ -241,6 +224,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.6+2"
+  google_nav_bar:
+    dependency: "direct main"
+    description:
+      name: google_nav_bar
+      sha256: "1c8e3882fa66ee7b74c24320668276ca23affbd58f0b14a24c1e5590f4d07ab0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.6"
   html:
     dependency: transitive
     description:
@@ -249,7 +240,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.15.4"
->>>>>>> origin/updatedQuiz
   http:
     dependency: "direct main"
     description:
@@ -537,8 +527,4 @@ packages:
     version: "1.0.4"
 sdks:
   dart: ">=3.3.2 <4.0.0"
-<<<<<<< HEAD
-  flutter: ">=3.19.2"
-=======
   flutter: ">=3.19.0"
->>>>>>> origin/updatedQuiz
