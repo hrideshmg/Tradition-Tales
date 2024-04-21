@@ -2,29 +2,13 @@ import 'package:culture_app/pages/details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-void main() {
-  runApp(QuizApp1());
-}
 
-class QuizApp1 extends StatelessWidget {
+class QuizScreen4 extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Theyyam Quiz',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: QuizScreen(),
-    );
-  }
+  _QuizScreen4State createState() => _QuizScreen4State();
 }
 
-class QuizScreen extends StatefulWidget {
-  @override
-  _QuizScreenState createState() => _QuizScreenState();
-}
-
-class _QuizScreenState extends State<QuizScreen> {
+class _QuizScreen4State extends State<QuizScreen4> {
   int _currentIndex = 0;
   int _correctAnswers = 0;
   int _wrongAnswers = 0;
@@ -32,52 +16,48 @@ class _QuizScreenState extends State<QuizScreen> {
 
   List<Map<String, dynamic>> _questions = [
     {
-      'question':
-          'Theyyam is a vibrant ritual art form primarily found in which region of India?',
+      'question': 'Diwali, also known as the Festival of Lights, is a major celebration in India. What religion is most closely associated with Diwali?',
       'options': [
-        'Tamil Nadu',
-        'Karnataka',
-        'North Kerala',
-        'Andhra Pradesh'
+        'Hinduism ',
+        'Buddhism',
+        'Sikhism',
+        'Jainism'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 0,
+      
     },
     {
-      'question':
-          'Theyyam performances depict a variety of characters through elaborate costumes and makeup. What is the PRIMARY purpose of these performances?',
+      'question': 'During Diwali, homes are decorated with diyas, small clay lamps filled with oil. What is the symbolic meaning of lighting diyas?',
       'options': [
-        'To showcase the beauty of traditional dance forms.',
-        'To entertain audiences with vibrant costumes and music.',
-        'To appease deities and spirits, seeking blessings and maintaining harmony.',
-        'To reenact historical events and battles.'
+        'To ward off evil spirits and usher in good fortune ',
+        'To celebrate the harvest season',
+        'To honor specific deities',
+        'To create a festive atmosphere'
       ],
-      'correctAnswerIndex': 2,
-
+      'correctAnswerIndex': 0,
+      
     },
     {
-      'question':
-          'Theyyam performances are often held at specific locations during festivals.  Where are Theyyam performances MOST LIKELY to take place?',
+      'question': 'Fireworks are a popular tradition during Diwali.  What does the explosion of light represent during the festival?',
       'options': [
-        'In large stadiums with thousands of spectators.',
-        'Inside grand palaces for the royal court.',
-        'At temples, shrines, and sacred groves.',
-        'In bustling marketplaces for public entertainment.'
+        'The triumph of good over evil ',
+        'Welcoming the arrival of spring',
+        'Celebrating a bountiful harvest',
+        'Honoring ancestors'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 0,
+      
     },
     {
-      'question':
-          'Theyyam costumes are known for their impressive size and intricate details. What material is MOST LIKELY used to create the lightweight but sturdy framework for the towering headdresses?',
+      'question': 'Diwali is a time for feasting and exchanging gifts.  What is a traditional sweet treat associated with Diwali?',
       'options': [
-        'Heavy metal plates',
-        'Thick layers of fabric',
-        'Light bamboo frames',
-        'Carved wooden blocks'
+        'Spicy samosas',
+        'Savory pakoras',
+        'Sweet and colorful mithai ',
+        'Tangy chutneys'
       ],
       'correctAnswerIndex': 2,
-    
+      
     },
   ];
 
@@ -108,10 +88,7 @@ class _QuizScreenState extends State<QuizScreen> {
       print('Correct Answers: $_correctAnswers');
       print('Wrong Answers: $_wrongAnswers');
       // Navigate back to previous page when the game is over
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => DetailsPage()),
-      );
+                      Navigator.pop(context);
     }
   }
 
@@ -130,13 +107,16 @@ class _QuizScreenState extends State<QuizScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Theyyam Quiz'),
+          title: Text('Diwali Quiz'),
           actions: [
             IconButton(
               icon: Icon(Icons.close),
               onPressed: () {
                 // Navigate back to previous page
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetailsPage()),
+                );
               },
             ),
           ],

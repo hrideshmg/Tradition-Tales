@@ -2,29 +2,12 @@ import 'package:culture_app/pages/details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-void main() {
-  runApp(QuizApp1());
-}
-
-class QuizApp1 extends StatelessWidget {
+class QuizScreen6 extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Theyyam Quiz',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: QuizScreen(),
-    );
-  }
+  _QuizScreen6State createState() => _QuizScreen6State();
 }
 
-class QuizScreen extends StatefulWidget {
-  @override
-  _QuizScreenState createState() => _QuizScreenState();
-}
-
-class _QuizScreenState extends State<QuizScreen> {
+class _QuizScreen6State extends State<QuizScreen6> {
   int _currentIndex = 0;
   int _correctAnswers = 0;
   int _wrongAnswers = 0;
@@ -32,52 +15,48 @@ class _QuizScreenState extends State<QuizScreen> {
 
   List<Map<String, dynamic>> _questions = [
     {
-      'question':
-          'Theyyam is a vibrant ritual art form primarily found in which region of India?',
+      'question': 'Adam and Eve disobeyed God\'s command and faced what consequence?',
       'options': [
-        'Tamil Nadu',
-        'Karnataka',
-        'North Kerala',
-        'Andhra Pradesh'
+        'They were granted eternal life.',
+        'They were banished from the Garden of Eden.',
+        'They gained magical powers.',
+        'They became immortal but filled with sorrow.'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 1,
+      
     },
     {
-      'question':
-          'Theyyam performances depict a variety of characters through elaborate costumes and makeup. What is the PRIMARY purpose of these performances?',
+      'question': 'Why did God intervene and stop the construction of the Tower of Babel?',
       'options': [
-        'To showcase the beauty of traditional dance forms.',
-        'To entertain audiences with vibrant costumes and music.',
-        'To appease deities and spirits, seeking blessings and maintaining harmony.',
-        'To reenact historical events and battles.'
+        'The tower was structurally unsound and posed a safety hazard.',
+        'God feared humanity would become too powerful.',
+        'The tower blocked the view of the stars.',
+        'The builders were using forbidden materials.'
       ],
-      'correctAnswerIndex': 2,
-
+      'correctAnswerIndex': 1,
+      
     },
     {
-      'question':
-          'Theyyam performances are often held at specific locations during festivals.  Where are Theyyam performances MOST LIKELY to take place?',
+      'question': 'Abraham was tested by God with a difficult command. What was he asked to sacrifice on an altar?',
       'options': [
-        'In large stadiums with thousands of spectators.',
-        'Inside grand palaces for the royal court.',
-        'At temples, shrines, and sacred groves.',
-        'In bustling marketplaces for public entertainment.'
+        'His most prized possession, a golden calf.',
+        'His eldest son, Isaac.',
+        'His wife, Sarah, to appease a jealous deity.',
+        'All his wealth to help the poor and needy.'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 1,
+      
     },
     {
-      'question':
-          'Theyyam costumes are known for their impressive size and intricate details. What material is MOST LIKELY used to create the lightweight but sturdy framework for the towering headdresses?',
+      'question': 'A parable tells the story of a young man who squanders his inheritance. How does the father respond?',
       'options': [
-        'Heavy metal plates',
-        'Thick layers of fabric',
-        'Light bamboo frames',
-        'Carved wooden blocks'
+        'He angrily rejects his son, demanding repayment.',
+        'He welcomes his son back with open arms and a joyous feast.',
+        'He forgives his son but requires him to work as a servant.',
+        'He casts his son out onto the streets to learn a valuable lesson.'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 1,
+      
     },
   ];
 
@@ -130,13 +109,13 @@ class _QuizScreenState extends State<QuizScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Theyyam Quiz'),
+          title: Text('Bible Quiz'),
           actions: [
             IconButton(
               icon: Icon(Icons.close),
               onPressed: () {
                 // Navigate back to previous page
-                Navigator.pop(context);
+                               Navigator.pop(context);
               },
             ),
           ],
@@ -146,6 +125,7 @@ class _QuizScreenState extends State<QuizScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+             
               SizedBox(height: 20),
               Text(
                 _questions[_currentIndex]['question'],

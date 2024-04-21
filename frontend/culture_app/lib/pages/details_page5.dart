@@ -1,3 +1,4 @@
+import 'package:culture_app/pages/quiz5.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:culture_app/custom/custom_icons.dart';
@@ -126,7 +127,7 @@ class _DetailsPage5State extends State<DetailsPage5> {
             padding: EdgeInsets.all(20),
             shrinkWrap: true,
             children: <Widget>[
-              Text('Vishu',
+              Text('Ramayan',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       letterSpacing: 1.1,
@@ -176,7 +177,11 @@ class _DetailsPage5State extends State<DetailsPage5> {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                    QuizScreen5()
+                  ));
+                },
                 child: Padding(
                   padding: const EdgeInsets.only(
                       left: 10, right: 10, bottom: 10, top: 10),
