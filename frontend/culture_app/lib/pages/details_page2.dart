@@ -1,3 +1,4 @@
+import 'package:culture_app/pages/quiz4.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:culture_app/custom/custom_icons.dart';
@@ -187,7 +188,7 @@ class _DetailsPage2State extends State<DetailsPage2> {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (_) =>QuizScreen4()));},
                 child: Padding(
                   padding: const EdgeInsets.only(
                       left: 10, right: 10, bottom: 10, top: 10),

@@ -1,4 +1,3 @@
-import 'package:culture_app/pages/quiz4.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:culture_app/custom/custom_icons.dart';
@@ -18,7 +17,7 @@ class _DetailsPage4State extends State<DetailsPage4> {
         Opacity(
           opacity: 0.5,
           child: Image.asset(
-            "assets/images/diwali_inside_img.jpg",
+            "assets/images/ritual1.jpeg",
             fit: BoxFit.cover,
           ),
         ),
@@ -59,7 +58,7 @@ class _DetailsPage4State extends State<DetailsPage4> {
                   SizedBox(width: 5),
                   Flexible(
                       child: Text(
-                    "Diwali, also known as ‘Deepavali’ (a row of lamps), is one of the most fervently celebrated festivals of India. Diwali is often called the ‘Festival of Lights’, and is celebrated by lighting lamps, and bursting crackers and fireworks. It is a festival which commemorates the victorious return of Lord Rama to Ayodhya after saving his wife Sita from the demon king Ravana. This religious festival represents the triumph of good over evil and light over darkness.",
+                    "Pooja ceremonies can vary widely in scale and complexity depending on the occasion and the individual or community performing it. They can be conducted at home, in temples, or during religious festivals. The rituals involved are often guided by scriptures and traditions passed down through generations",
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   )),
                 ],
@@ -123,7 +122,7 @@ class _DetailsPage4State extends State<DetailsPage4> {
             padding: EdgeInsets.all(20),
             shrinkWrap: true,
             children: <Widget>[
-              Text('Diwali',
+              Text('Puja',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       letterSpacing: 1.1,
@@ -179,7 +178,7 @@ class _DetailsPage4State extends State<DetailsPage4> {
                     ),
                   ),
                 ),
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (_) =>QuizScreen4()));},
+                onPressed: () {},
                 child: Padding(
                   padding: const EdgeInsets.only(
                       left: 10, right: 10, bottom: 10, top: 10),
