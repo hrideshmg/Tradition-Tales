@@ -120,6 +120,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           appBar: AppBar(
               automaticallyImplyLeading: false, // Ensure no default back button
               titleSpacing: 0, // Reduce spacing between title and actions
+              toolbarHeight: 120,
               title: Padding(
                 padding: EdgeInsets.all(8),
                 child: Row(
@@ -127,15 +128,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Namaste",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 25,
-                          fontFamily: "inter",
-                          letterSpacing: 1,
-                        ),
-                      ),
+                      child: Image.asset("assets/image/image1.png",width: 250,height: 150,)
+                      
                     ),
                   ],
                 ),
