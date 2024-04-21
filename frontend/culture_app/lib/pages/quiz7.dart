@@ -2,29 +2,12 @@ import 'package:culture_app/pages/details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-void main() {
-  runApp(QuizApp1());
-}
-
-class QuizApp1 extends StatelessWidget {
+class QuizScreen7 extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Theyyam Quiz',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: QuizScreen(),
-    );
-  }
+  _QuizScreen7State createState() => _QuizScreen7State();
 }
 
-class QuizScreen extends StatefulWidget {
-  @override
-  _QuizScreenState createState() => _QuizScreenState();
-}
-
-class _QuizScreenState extends State<QuizScreen> {
+class _QuizScreen7State extends State<QuizScreen7> {
   int _currentIndex = 0;
   int _correctAnswers = 0;
   int _wrongAnswers = 0;
@@ -32,52 +15,48 @@ class _QuizScreenState extends State<QuizScreen> {
 
   List<Map<String, dynamic>> _questions = [
     {
-      'question':
-          'Theyyam is a vibrant ritual art form primarily found in which region of India?',
+      'question': 'The Mahabharata revolves around the conflict between two branches of the same family.  Who are these warring cousins?',
       'options': [
-        'Tamil Nadu',
-        'Karnataka',
-        'North Kerala',
-        'Andhra Pradesh'
+        'The Pandavas and the Kauravas',
+        'The Yadavas and the Kurus',
+        'The Pandavas and the Rakshasas',
+        'The Kauravas and the Yadavas'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 0,
+      
     },
     {
-      'question':
-          'Theyyam performances depict a variety of characters through elaborate costumes and makeup. What is the PRIMARY purpose of these performances?',
+      'question': 'A pivotal event in the story is a rigged dice game between Yudhishthira, the eldest Pandava, and his cunning cousin Duryodhana.  What outcome does Duryodhana manipulate through this game?',
       'options': [
-        'To showcase the beauty of traditional dance forms.',
-        'To entertain audiences with vibrant costumes and music.',
-        'To appease deities and spirits, seeking blessings and maintaining harmony.',
-        'To reenact historical events and battles.'
+        'Exile for the Pandavas for 12 years.',
+        'The surrender of Draupadi, the Pandavas\' shared wife.',
+        'The loss of all the Pandavas\' wealth and possessions.',
+        'A declaration of war between the Pandavas and Kauravas.'
       ],
-      'correctAnswerIndex': 2,
-
+      'correctAnswerIndex': 0,
+      
     },
     {
-      'question':
-          'Theyyam performances are often held at specific locations during festivals.  Where are Theyyam performances MOST LIKELY to take place?',
+      'question': 'Following their defeat in the dice game, the Pandavas are forced into exile for twelve years.  Where do they spend this period of hardship?',
       'options': [
-        'In large stadiums with thousands of spectators.',
-        'Inside grand palaces for the royal court.',
-        'At temples, shrines, and sacred groves.',
-        'In bustling marketplaces for public entertainment.'
+        'The kingdom of Matsya, ruled by a loyal friend.',
+        'The Dandaka forest, also the location of Rama\'s exile in the Ramayana.',
+        'The celestial city of Indra, king of the gods.',
+        'A hidden city within the Kuru kingdom, plotting their revenge.'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 3,
+      
     },
     {
-      'question':
-          'Theyyam costumes are known for their impressive size and intricate details. What material is MOST LIKELY used to create the lightweight but sturdy framework for the towering headdresses?',
+      'question': 'After their twelve years of exile, the Pandavas must spend an additional year living incognito to avoid further conflict.  Under what disguise do they infiltrate the Matsya kingdom?',
       'options': [
-        'Heavy metal plates',
-        'Thick layers of fabric',
-        'Light bamboo frames',
-        'Carved wooden blocks'
+        'As wandering ascetics',
+        'As skilled charioteers',
+        'As royal advisors to the king',
+        'As traveling merchants'
       ],
       'correctAnswerIndex': 2,
-    
+      
     },
   ];
 
@@ -130,13 +109,13 @@ class _QuizScreenState extends State<QuizScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Theyyam Quiz'),
+          title: Text('Mahabharata Quiz'),
           actions: [
             IconButton(
               icon: Icon(Icons.close),
               onPressed: () {
                 // Navigate back to previous page
-                Navigator.pop(context);
+                              Navigator.pop(context);
               },
             ),
           ],

@@ -2,29 +2,12 @@ import 'package:culture_app/pages/details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-void main() {
-  runApp(QuizApp1());
-}
-
-class QuizApp1 extends StatelessWidget {
+class QuizScreen3 extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Theyyam Quiz',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: QuizScreen(),
-    );
-  }
+  _QuizScreen3State createState() => _QuizScreen3State();
 }
 
-class QuizScreen extends StatefulWidget {
-  @override
-  _QuizScreenState createState() => _QuizScreenState();
-}
-
-class _QuizScreenState extends State<QuizScreen> {
+class _QuizScreen3State extends State<QuizScreen3> {
   int _currentIndex = 0;
   int _correctAnswers = 0;
   int _wrongAnswers = 0;
@@ -33,51 +16,46 @@ class _QuizScreenState extends State<QuizScreen> {
   List<Map<String, dynamic>> _questions = [
     {
       'question':
-          'Theyyam is a vibrant ritual art form primarily found in which region of India?',
-      'options': [
-        'Tamil Nadu',
-        'Karnataka',
-        'North Kerala',
-        'Andhra Pradesh'
-      ],
+          'Onam is a harvest festival celebrated in which Indian state?',
+      'options': ['Tamil Nadu', 'Karnataka', 'Kerala ', 'Andhra Pradesh'],
       'correctAnswerIndex': 2,
-    
+      
     },
     {
       'question':
-          'Theyyam performances depict a variety of characters through elaborate costumes and makeup. What is the PRIMARY purpose of these performances?',
+          'What is the significance of Pookalam, a popular Onam tradition?',
       'options': [
-        'To showcase the beauty of traditional dance forms.',
-        'To entertain audiences with vibrant costumes and music.',
-        'To appease deities and spirits, seeking blessings and maintaining harmony.',
-        'To reenact historical events and battles.'
+        'Wearing colorful clothing',
+        'Creating elaborate flower decorations ',
+        'Participating in boat races',
+        'Preparing a grand feast'
       ],
-      'correctAnswerIndex': 2,
-
+      'correctAnswerIndex': 1,
+      
     },
     {
       'question':
-          'Theyyam performances are often held at specific locations during festivals.  Where are Theyyam performances MOST LIKELY to take place?',
+          'King Mahabali, a legendary figure associated with Onam, is believed to visit Kerala during the festival. What does his return symbolize?',
       'options': [
-        'In large stadiums with thousands of spectators.',
-        'Inside grand palaces for the royal court.',
-        'At temples, shrines, and sacred groves.',
-        'In bustling marketplaces for public entertainment.'
+        'The arrival of spring',
+        'A reminder of the importance of humility ',
+        'Celebrating the end of the monsoon season',
+        'A time for grand displays of wealth'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 1,
+      
     },
     {
       'question':
-          'Theyyam costumes are known for their impressive size and intricate details. What material is MOST LIKELY used to create the lightweight but sturdy framework for the towering headdresses?',
+          'During Onam, a traditional vegetarian feast called Sadhya is a central part of the celebration. What is the main focus of this elaborate meal?',
       'options': [
-        'Heavy metal plates',
-        'Thick layers of fabric',
-        'Light bamboo frames',
-        'Carved wooden blocks'
+        'Spicy and meat-based dishes',
+        'Sharing and enjoying a variety of vegetarian dishes ',
+        'Consuming large quantities of food',
+        'A competition for the most unique dish'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 1,
+     
     },
   ];
 
@@ -108,10 +86,7 @@ class _QuizScreenState extends State<QuizScreen> {
       print('Correct Answers: $_correctAnswers');
       print('Wrong Answers: $_wrongAnswers');
       // Navigate back to previous page when the game is over
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => DetailsPage()),
-      );
+      Navigator.pop(context);
     }
   }
 
@@ -130,7 +105,7 @@ class _QuizScreenState extends State<QuizScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Theyyam Quiz'),
+          title: Text('Onam Quiz'),
           actions: [
             IconButton(
               icon: Icon(Icons.close),
@@ -146,6 +121,7 @@ class _QuizScreenState extends State<QuizScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+            
               SizedBox(height: 20),
               Text(
                 _questions[_currentIndex]['question'],
@@ -190,13 +166,13 @@ class _QuizScreenState extends State<QuizScreen> {
               if (_lives == 0)
                 Text(
                   'Game Over!',
-                  style: TextStyle(
-                      fontSize: 24.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
               // Add a button to go to the next question
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.indigo, // Changed button color to indigo
+                  backgroundColor:
+                      Colors.indigo, // Changed button color to indigo
                 ),
                 onPressed: () {
                   _showNextQuestion();

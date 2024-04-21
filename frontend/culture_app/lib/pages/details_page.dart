@@ -182,7 +182,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 ),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                    QuizApp()
+                    QuizScreen()
                   ));
                 },
                 child: Padding(
