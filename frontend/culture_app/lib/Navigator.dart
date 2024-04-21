@@ -35,7 +35,6 @@ class _NavigatorState extends State<Navigation1> {
   Widget build(BuildContext context) {
     List<Widget> _children = <Widget>[
       HomePage(),
-      Placeholder(),
       ProfilePage(),
     ];
     return Scaffold(
@@ -74,10 +73,6 @@ class _NavigatorState extends State<Navigation1> {
                       GButton(
                         icon: LineIcons.home,
                         text: 'Home',
-                      ),
-                      GButton(
-                        icon: LineIcons.alternateMapMarked,
-                        text: 'Map',
                       ),
                       GButton(
                         icon: LineIcons.user,
