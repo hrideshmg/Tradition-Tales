@@ -1,6 +1,8 @@
 import 'package:culture_app/pages/details_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
 
 class QuizScreen extends StatefulWidget {
   @override
@@ -114,35 +116,67 @@ class _QuizScreenState extends State<QuizScreen> {
           ],
         ),
         body: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.only(left: 15.0,right: 20.0,bottom: 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                _questions[_currentIndex]['question'],
-                style: TextStyle(fontSize: 20.0),
+
+              Image.network(
+                _questions[_currentIndex]['image'],
+                width: double.infinity, // Adjust the width as needed
+                height: 300, // Adjust the height as needed
+                fit: BoxFit.cover, // Adjust the BoxFit as needed
               ),
+             const SizedBox(height: 20,),
 
               Column(
                 children: List.generate(
-                  _questions[_currentIndex]['options'].length,
+                  (_questions[_currentIndex]['options'].length/2.0).toInt(),
                   (index) => GestureDetector(
                     onTap: () {
                       _checkAnswer(index);
                     },
-                    child: Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 20.0),
-                      margin: EdgeInsets.only(bottom: 10.0),
-                      decoration: BoxDecoration(
-                        color: Colors.indigo, // Changed color to indigo
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Text(
-                        _questions[_currentIndex]['options'][index],
-                        style: TextStyle(color: Colors.white, fontSize: 16.0),
-                      ),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              // width: MediaQuery.of(context).size.width/2,
+                              width: MediaQuery.of(context).size.width/2.5,
+                              height: MediaQuery.of(context).size.height/10,
+                              padding:const EdgeInsets.symmetric(
+                                  vertical: 10.0, horizontal: 20.0),
+                              margin:const EdgeInsets.only(bottom: 10.0),
+                              decoration: BoxDecoration(
+                                color: Colors.indigo, // Changed color to indigo
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Text(
+                                _questions[_currentIndex]['options'][index],
+                                style:const TextStyle(color: Colors.white, fontSize: 16.0,fontFamily: "inter"),
+                              ),
+                            ),
+                            const SizedBox(width: 20,),
+                            Container(
+                              // width: MediaQuery.of(context).size.width/2,
+                              width: MediaQuery.of(context).size.width/2.5,
+                              height: MediaQuery.of(context).size.height/10,
+                              padding:const EdgeInsets.symmetric(
+                                  vertical: 10.0, horizontal: 20.0),
+                              margin:const EdgeInsets.only(bottom: 10.0),
+                              decoration: BoxDecoration(
+                                color: Colors.indigo, // Changed color to indigo
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Text(
+                                _questions[_currentIndex+1]['options'][index+1],
+                                style:const TextStyle(color: Colors.white, fontSize: 16.0,fontFamily: "inter"),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -166,6 +200,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
               // Add a button to go to the next question
               Container(
+                width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
