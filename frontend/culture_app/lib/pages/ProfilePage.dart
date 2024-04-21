@@ -1,10 +1,13 @@
 // import 'dart:js_util';
 
+import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:culture_app/pages/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:culture_app/pages/signin.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -37,15 +40,14 @@ class _ProfilePageState extends State<ProfilePage> {
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(width: 1, color: Colors.black),
                         color: Colors.grey.shade100),
-                    child: const Padding(
+                    child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Column(
                         children: [
-                          Text(
-                            "@Hridesh MG",
-                            style: TextStyle(
-                                fontFamily: "kelly-slab", fontSize: 24),
-                          ), //font needs to be added
+                          Text("@Hridesh MG",
+                              style: GoogleFonts.kellySlab(
+                                  textStyle: TextStyle(
+                                      fontSize: 24))), //font needs to be added
                           SizedBox(
                             height: 40,
                           ),
@@ -193,4 +195,3 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
-
