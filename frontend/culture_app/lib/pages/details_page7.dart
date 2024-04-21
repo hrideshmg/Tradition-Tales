@@ -1,3 +1,4 @@
+import 'package:culture_app/pages/quiz7.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:culture_app/custom/custom_icons.dart';
@@ -117,7 +118,7 @@ class _DetailsPage7State extends State<DetailsPage7> {
             padding: EdgeInsets.all(20),
             shrinkWrap: true,
             children: <Widget>[
-              Text('Vishu',
+              Text('Mahabharat',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       letterSpacing: 1.1,
@@ -167,7 +168,11 @@ class _DetailsPage7State extends State<DetailsPage7> {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                    QuizScreen7()
+                  ));
+                },
                 child: Padding(
                   padding: const EdgeInsets.only(
                       left: 10, right: 10, bottom: 10, top: 10),

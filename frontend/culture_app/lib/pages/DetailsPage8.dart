@@ -1,15 +1,14 @@
-import 'package:culture_app/pages/quiz5.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:culture_app/custom/custom_icons.dart';
 import 'package:flutter/widgets.dart';
 
-class DetailsPage5 extends StatefulWidget {
+class DetailsPage4 extends StatefulWidget {
   @override
-  _DetailsPage5State createState() => _DetailsPage5State();
+  _DetailsPage4State createState() => _DetailsPage4State();
 }
 
-class _DetailsPage5State extends State<DetailsPage5> {
+class _DetailsPage4State extends State<DetailsPage4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +17,7 @@ class _DetailsPage5State extends State<DetailsPage5> {
         Opacity(
           opacity: 0.5,
           child: Image.asset(
-            "assets/images/ramayan_inside.jpg",
+            "assets/images/ritual1.jpeg",
             fit: BoxFit.cover,
           ),
         ),
@@ -27,7 +26,7 @@ class _DetailsPage5State extends State<DetailsPage5> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Ramayan',
+              Text('Diwali',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       letterSpacing: 1.1,
@@ -59,7 +58,7 @@ class _DetailsPage5State extends State<DetailsPage5> {
                   SizedBox(width: 5),
                   Flexible(
                       child: Text(
-                    "The Ramayana, a revered Indian epic, chronicles Prince Rama's journey. Rama, the rightful heir, is exiled with his loyal wife Sita and brother Lakshmana. In the forest, the demon king Ravana kidnaps Sita. Rama, aided by the monkey god Hanuman, ventures to Lanka to rescue her. A mighty battle ensues, where Rama triumphs over Ravana, restoring order. More than a story, the Ramayana is a moral guide, emphasizing duty, love, and good prevailing over evil.",
+                    "Pooja ceremonies can vary widely in scale and complexity depending on the occasion and the individual or community performing it. They can be conducted at home, in temples, or during religious festivals. The rituals involved are often guided by scriptures and traditions passed down through generations",
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   )),
                 ],
@@ -123,7 +122,7 @@ class _DetailsPage5State extends State<DetailsPage5> {
             padding: EdgeInsets.all(20),
             shrinkWrap: true,
             children: <Widget>[
-              Text('Ramayan',
+              Text('Puja',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       letterSpacing: 1.1,
@@ -144,10 +143,16 @@ class _DetailsPage5State extends State<DetailsPage5> {
                         ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Image.asset(
-                              "assets/images/ramayanbook.jpg",
+                              "assets/images/diwali_book1.jpg",
                               width: 200,
                               height: 200,
                             )),
+                        SizedBox(),
+                        Image.asset(
+                          "assets/images/diwali_book2.jpg",
+                          width: 200,
+                          height: 200,
+                        ),
                       ],
                     ),
                   )),
@@ -173,11 +178,7 @@ class _DetailsPage5State extends State<DetailsPage5> {
                     ),
                   ),
                 ),
-                onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                    QuizScreen5()
-                  ));
-                },
+                onPressed: () {},
                 child: Padding(
                   padding: const EdgeInsets.only(
                       left: 10, right: 10, bottom: 10, top: 10),
