@@ -2,29 +2,12 @@ import 'package:culture_app/pages/details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-void main() {
-  runApp(QuizApp1());
-}
-
-class QuizApp1 extends StatelessWidget {
+class QuizScreen5 extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Theyyam Quiz',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: QuizScreen(),
-    );
-  }
+  _QuizScreen5State createState() => _QuizScreen5State();
 }
 
-class QuizScreen extends StatefulWidget {
-  @override
-  _QuizScreenState createState() => _QuizScreenState();
-}
-
-class _QuizScreenState extends State<QuizScreen> {
+class _QuizScreen5State extends State<QuizScreen5> {
   int _currentIndex = 0;
   int _correctAnswers = 0;
   int _wrongAnswers = 0;
@@ -32,52 +15,49 @@ class _QuizScreenState extends State<QuizScreen> {
 
   List<Map<String, dynamic>> _questions = [
     {
-      'question':
-          'Theyyam is a vibrant ritual art form primarily found in which region of India?',
+      'question': 'During Rama\'s exile, a golden deer led him away, allowing Ravana to abduct Sita. What action by Rama led to this?',
       'options': [
-        'Tamil Nadu',
-        'Karnataka',
-        'North Kerala',
-        'Andhra Pradesh'
+        'He ignored Lakshmana\'s warnings and chased the deer.',
+        'He left Sita alone to investigate a sound.',
+        'He sent Lakshmana away on an errand.',
+        'He believed the deer was a magical creature.'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 0,
+      'image':
+          'https://example.com/ramayana_image.jpg', // Replace with your image URL
     },
     {
-      'question':
-          'Theyyam performances depict a variety of characters through elaborate costumes and makeup. What is the PRIMARY purpose of these performances?',
+      'question': 'Jatayu, the giant vulture, reveals a crucial detail to Rama after witnessing Sita\'s abduction. What information does Jatayu share?',
       'options': [
-        'To showcase the beauty of traditional dance forms.',
-        'To entertain audiences with vibrant costumes and music.',
-        'To appease deities and spirits, seeking blessings and maintaining harmony.',
-        'To reenact historical events and battles.'
+        'The direction Ravana flew towards with Sita.',
+        'The identity of the kidnapper but not the location.',
+        'A secret weapon to defeat Ravana.',
+        'The direction Ravana flew towards with Sita.'
       ],
-      'correctAnswerIndex': 2,
-
+      'correctAnswerIndex': 3,
+     
     },
     {
-      'question':
-          'Theyyam performances are often held at specific locations during festivals.  Where are Theyyam performances MOST LIKELY to take place?',
+      'question': 'Rama helps Sugriva regain his throne in Kishkindha. How does this alliance benefit Rama\'s search for Sita?',
       'options': [
-        'In large stadiums with thousands of spectators.',
-        'Inside grand palaces for the royal court.',
-        'At temples, shrines, and sacred groves.',
-        'In bustling marketplaces for public entertainment.'
+        'Sugriva offers Hanuman, his loyal advisor, to help find Sita.',
+        'The alliance grants Rama access to a hidden treasure.',
+        'Sugriva joins Rama\'s army to fight Ravana.',
+        'Sugriva offers Hanuman, his loyal advisor, to help find Sita.'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 3,
+     
     },
     {
-      'question':
-          'Theyyam costumes are known for their impressive size and intricate details. What material is MOST LIKELY used to create the lightweight but sturdy framework for the towering headdresses?',
+      'question': 'Building the bridge to Lanka presented a significant challenge. What best describes the difficulty faced during construction?',
       'options': [
-        'Heavy metal plates',
-        'Thick layers of fabric',
-        'Light bamboo frames',
-        'Carved wooden blocks'
+        'Demons from Lanka constantly disrupted the effort.',
+        'The bridge was built quickly and effortlessly.',
+        'Lack of resources slowed down construction.',
+        'Demons from Lanka constantly disrupted the effort.'
       ],
-      'correctAnswerIndex': 2,
-    
+      'correctAnswerIndex': 0,
+     
     },
   ];
 
@@ -130,13 +110,13 @@ class _QuizScreenState extends State<QuizScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Theyyam Quiz'),
+          title: Text('Ramayana Quiz'),
           actions: [
             IconButton(
               icon: Icon(Icons.close),
               onPressed: () {
                 // Navigate back to previous page
-                Navigator.pop(context);
+                               Navigator.pop(context);
               },
             ),
           ],
@@ -146,6 +126,7 @@ class _QuizScreenState extends State<QuizScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              
               SizedBox(height: 20),
               Text(
                 _questions[_currentIndex]['question'],

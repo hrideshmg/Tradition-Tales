@@ -3,23 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-void main() {
-  runApp(QuizApp());
-}
-
-class QuizApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Vishu Quiz',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: QuizScreen(),
-    );
-  }
-}
 
 class QuizScreen extends StatefulWidget {
   @override
@@ -38,7 +21,6 @@ class _QuizScreenState extends State<QuizScreen> {
           'Vishu is a festival celebrated in Kerala, India, that marks the beginning of their traditional new year. What is the approximate Gregorian calendar month when Vishu usually falls?',
       'options': ['January', 'April', 'July', 'October'],
       'correctAnswerIndex': 1,
-      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
     },
     {
       'question':
@@ -50,7 +32,6 @@ class _QuizScreenState extends State<QuizScreen> {
         'A gift for a loved one'
       ],
       'correctAnswerIndex': 0,
-      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
     },
     {
       'question':
@@ -62,7 +43,6 @@ class _QuizScreenState extends State<QuizScreen> {
         'A majestic lion'
       ],
       'correctAnswerIndex': 2,
-      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
     },
     {
       'question':
@@ -74,7 +54,6 @@ class _QuizScreenState extends State<QuizScreen> {
         'To encourage children to gamble'
       ],
       'correctAnswerIndex': 1,
-      'image': 'https://cdnjs.angroos.com/wp-content/uploads/2024/02/Vishu-Wishes.jpg', // Replace with your image URL
     },
   ];
 
@@ -105,7 +84,8 @@ class _QuizScreenState extends State<QuizScreen> {
       print('Correct Answers: $_correctAnswers');
       print('Wrong Answers: $_wrongAnswers');
       // Navigate back to previous page when the game is over
-      Navigator.push(context,MaterialPageRoute(builder: (context)=>DetailsPage()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => DetailsPage()));
     }
   }
 
@@ -130,10 +110,7 @@ class _QuizScreenState extends State<QuizScreen> {
               icon: Icon(Icons.close),
               onPressed: () {
                 // Navigate back to previous page
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => DetailsPage()),
-                );
+                Navigator.pop(context);
               },
             ),
           ],
@@ -143,6 +120,7 @@ class _QuizScreenState extends State<QuizScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
               Image.network(
                 _questions[_currentIndex]['image'],
                 width: double.infinity, // Adjust the width as needed
@@ -150,11 +128,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 fit: BoxFit.cover, // Adjust the BoxFit as needed
               ),
              const SizedBox(height: 20,),
-              Text(
-                _questions[_currentIndex]['question'],
-                style:const TextStyle(fontSize: 20.0,fontFamily: "inter"),
-              ),
-      const SizedBox(height: 20,),
+
               Column(
                 children: List.generate(
                   (_questions[_currentIndex]['options'].length/2.0).toInt(),
@@ -207,7 +181,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 8,),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -215,34 +189,32 @@ class _QuizScreenState extends State<QuizScreen> {
                     'Lives: $_lives',
                     style: TextStyle(fontSize: 16.0),
                   ),
-                  Text(
-                    'Timer: --:--', // Placeholder for timer
-                    style: TextStyle(fontSize: 16.0),
-                  ),
                 ],
               ),
-            
+
               if (_lives == 0)
                 Text(
                   'Game Over!',
-                  style: TextStyle(
-                      fontSize: 24.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
-          SizedBox(height: 14,),
+
               // Add a button to go to the next question
               Container(
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.indigo, // Changed button color to indigo
+                    backgroundColor:
+                        Colors.indigo, // Changed button color to indigo
                   ),
                   onPressed: () {
                     _showNextQuestion();
                   },
-                  child: Text('Next Question',style: TextStyle(color: Colors.white),),
+                  child: Text(
+                    'Next Question',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
-           
             ],
           ),
         ),

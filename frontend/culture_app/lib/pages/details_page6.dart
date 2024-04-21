@@ -1,3 +1,4 @@
+import 'package:culture_app/pages/quiz6.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:culture_app/custom/custom_icons.dart';
@@ -162,7 +163,11 @@ class _DetailsPage6State extends State<DetailsPage6> {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                    QuizScreen6()
+                  ));
+                },
                 child: Padding(
                   padding: const EdgeInsets.only(
                       left: 10, right: 10, bottom: 10, top: 10),

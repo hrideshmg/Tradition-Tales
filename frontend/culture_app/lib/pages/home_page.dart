@@ -62,7 +62,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-var cardAspectRatio = 12.0 / 16.0;
+var cardAspectRatio = 13.0 / 16.0;
 var widgetAspectRatio = cardAspectRatio * 1.2;
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
@@ -121,20 +121,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               automaticallyImplyLeading: false, // Ensure no default back button
               titleSpacing: 0, // Reduce spacing between title and actions
               toolbarHeight: 120,
-              title: Padding(
-                padding: EdgeInsets.all(8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Image.asset(
-                          "assets/images/image1.png",
-                          width: 250,
-                          height: 150,
-                        )),
-                  ],
-                ),
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        "assets/images/image1.png",
+                        width: 250,
+                        height: 150,
+                      )),
+                ],
               )),
           body: PageView(children: [
             SafeArea(
@@ -147,18 +144,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       children: <Widget>[
                         Container(
                           padding: const EdgeInsets.only(
-                              left: 15, right: 5, top: 8, bottom: 8),
+                              left: 15, right: 5, top: 4, bottom: 8),
                           child: Container(
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
                             alignment: Alignment.center,
-                            child: Text('Festivals',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
+                            child: Text(
+                              'Festivals',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.inter(
+                                textStyle: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
                                   fontFamily: "Sans-Semi-Bold",
-                                )),
+                                ),
+                              ),
+                            ),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13),
                                 shape: BoxShape.rectangle,
@@ -172,13 +173,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
                             alignment: Alignment.center,
-                            child: Text('Rituals',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.black87,
+                            child: Text(
+                              'Rituals',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.inter(
+                                textStyle: TextStyle(
+                                  color: Colors.black,
                                   fontSize: 20,
                                   fontFamily: "Sans-Semi-Bold",
-                                )),
+                                ),
+                              ),
+                            ),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13),
                                 shape: BoxShape.rectangle,
@@ -195,10 +200,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             child: Text(
                               'Epics',
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black87,
-                                fontSize: 20,
-                                fontFamily: "Sans-Semi-Bold",
+                              style: GoogleFonts.inter(
+                                textStyle: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontFamily: "Sans-Semi-Bold",
+                                ),
                               ),
                             ),
                             decoration: BoxDecoration(
@@ -302,13 +309,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
                             alignment: Alignment.center,
-                            child: Text('Festivals',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
+                            child: Text(
+                              'Festivals',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.inter(
+                                textStyle: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
                                   fontFamily: "Sans-Semi-Bold",
-                                )),
+                                ),
+                              ),
+                            ),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13),
                                 shape: BoxShape.rectangle,
@@ -322,13 +333,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
                             alignment: Alignment.center,
-                            child: Text('Rituals',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
+                            child: Text(
+                              'Rituals',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.inter(
+                                textStyle: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
                                   fontFamily: "Sans-Semi-Bold",
-                                )),
+                                ),
+                              ),
+                            ),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13),
                                 shape: BoxShape.rectangle,
@@ -342,13 +357,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
                             alignment: Alignment.center,
-                            child: Text('Epics',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.black87,
+                            child: Text(
+                              'Epics',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.inter(
+                                textStyle: TextStyle(
+                                  color: Colors.black,
                                   fontSize: 20,
                                   fontFamily: "Sans-Semi-Bold",
-                                )),
+                                ),
+                              ),
+                            ),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13),
                                 shape: BoxShape.rectangle,
@@ -453,13 +472,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 padding: const EdgeInsets.only(
                                     left: 12, right: 12, top: 8, bottom: 8),
                                 alignment: Alignment.center,
-                                child: Text('Festivals',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Colors.black87,
+                                child: Text(
+                                  'Festivals',
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.inter(
+                                    textStyle: TextStyle(
+                                      color: Colors.black,
                                       fontSize: 20,
                                       fontFamily: "Sans-Semi-Bold",
-                                    )),
+                                    ),
+                                  ),
+                                ),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(13),
                                     shape: BoxShape.rectangle,
@@ -473,13 +496,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
                             alignment: Alignment.center,
-                            child: Text('Rituals',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.black87,
+                            child: Text(
+                              'Rituals',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.inter(
+                                textStyle: TextStyle(
+                                  color: Colors.black,
                                   fontSize: 20,
                                   fontFamily: "Sans-Semi-Bold",
-                                )),
+                                ),
+                              ),
+                            ),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13),
                                 shape: BoxShape.rectangle,
@@ -493,14 +520,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 8, bottom: 8),
                             alignment: Alignment.center,
-                            child: Text('Epics',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color:
-                                      const Color.fromARGB(221, 255, 255, 255),
+                            child: Text(
+                              'Epics',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.inter(
+                                textStyle: TextStyle(
+                                  color: Colors.white,
                                   fontSize: 20,
                                   fontFamily: "Sans-Semi-Bold",
-                                )),
+                                ),
+                              ),
+                            ),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13),
                                 shape: BoxShape.rectangle,
@@ -745,7 +775,7 @@ class PageIndicator extends StatelessWidget {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(0.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
