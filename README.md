@@ -14,17 +14,10 @@ Tradition Tales
 [Hridesh MG](enter_github_id_here)   
 
 ### How it Works ?
-Explaining the working of project  
-Embed video of project demo
+Tradition Tales is an app designed to help Indians reconnect with their culture in an easy to digest and interactive format.
 
 ### Technologies used
-List out tech stacks you have used
+Flutter
 
-### How to configure
-Instructions for setting up project
-
-### How to Run
-Instructions for running
-
-### Other Links
-Provide any other links ( for eg. Wireframe , UI, Abstract, Presentation )
+### Demo
+https://github.com/user-attachments/assets/92415e29-7e8e-472c-8bbb-b78bb4d716f1
